@@ -22,7 +22,7 @@ var firebaseConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
     EmployerComponent,
     StudentComponent,
     JobpostComponent,
