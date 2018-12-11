@@ -179,13 +179,9 @@ a.rm, a.com {
 	color:#05A4E5;
 }
 .content {
-	margin-bottom:12px;
-	padding-left:300px;
-	padding-right:300px;
-	margin-top: 5%;
-	 
+	margin: auto;
+	width: 70%;
 	
-
 }
 .content_resize {
 	margin:0 auto;
