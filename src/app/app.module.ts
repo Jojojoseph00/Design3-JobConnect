@@ -10,6 +10,7 @@ import { EmployerComponent } from './employer/employer.component';
 import { StudentComponent } from './student/student.component';
 import { JobpostComponent } from './jobpost/jobpost.component';
 import { StudentprofileComponent } from './studentprofile/studentprofile.component';
+import { ApplicationService } from './application.service';
 
 
 var firebaseConfig = {
@@ -22,6 +23,7 @@ var firebaseConfig = {
 
 @NgModule({
   declarations: [
+   
     AppComponent,
     EmployerComponent,
     StudentComponent,

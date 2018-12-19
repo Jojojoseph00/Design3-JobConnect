@@ -56,19 +56,19 @@ export class StudentComponent implements OnInit {
   
 
   ngOnInit() {
-    this.postsCol = this.afs.collection('posts');
-    this.profilesCol = this.afs.collection('profiles', ref => ref.where('fname', '==', 'Robert'));
+    this.postsCol = this.afs.collection('posts');    
     this.posts = this.postsCol.valueChanges();
-    this.profiles = this.profilesCol.valueChanges();
+    
+    
     
   }
   addPost() {
     this.afs.collection('posts').add({'title': this.title, 'content': this.content, 'location': this.location});
   }
 
-  getPost(profileId) {
-    this.profileDoc = this.afs.doc('profiles/'+profileId);
-    this.profile = this.profileDoc.valueChanges();
+  getPost() {
+    this.profilesCol = this.afs.collection('profiles', ref => ref.where('fname', '==', 'Ye Yint'));
+    this.profiles = this.profilesCol.valueChanges();
   }
 
   openNav() {

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
+import { StudentprofileComponent } from '../studentprofile/studentprofile.component';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs'
 import 'rxjs';
+
 
 interface Post {
   title: string;
@@ -26,6 +27,7 @@ interface Application {
 interface ProfileId extends Profile { 
   id: string; 
 }
+
 
 @Component({
   selector: 'app-employer',
@@ -58,6 +60,8 @@ export class EmployerComponent implements OnInit {
   applicationCol: AngularFirestoreCollection<Application>;
   applications: any;
 
+  
+
 
   applicationDoc: AngularFirestoreDocument<Application>;
   application: Observable<Application>;
@@ -73,21 +77,11 @@ export class EmployerComponent implements OnInit {
     this.applications = this.applicationCol.valueChanges();
     
   }
-  getPost(postId) {
-    this.postDoc = this.afs.doc('posts/'+postId);
-    this.post = this.postDoc.valueChanges();
-  }
-  getPost2(profileId) {
-    this.profileDoc = this.afs.doc('profiles/'+profileId);
-    this.profile = this.profileDoc.valueChanges();
-  }
-  getPost3(profileId) {
-    this.applicationDoc = this.afs.doc('profiles/'+profileId);
-    this.application = this.applicationDoc.valueChanges();
-  }
+
 
   addPost2() {
-    this.afs.collection('application').add({'title': this.title, 'content': this.content, 'location': this.location});
+    
+    this.afs.collection('profiles').doc('robert-cook').set({'fname': this.fname, 'lname': this.lname, 'dob': this.dob, 'info': this.info});
   }
   openNav() {
     document.getElementById("mySidenav").style.width = "250px";

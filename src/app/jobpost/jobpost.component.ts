@@ -1,4 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import { ApplicationService } from '../application.service';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
+import { Observable } from 'rxjs'
+import 'rxjs';
+
+
+interface Profile {
+  fname: string;
+  lname: string;
+  dob: string;
+  info: string;
+}
+
+
+interface ProfileId extends Profile { 
+  id: string; 
+}
 
 @Component({
   selector: 'app-jobpost',
@@ -7,9 +24,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JobpostComponent implements OnInit {
 
-  constructor() { }
+  profilesCol: AngularFirestoreCollection<Profile>;
+  profiles: any;
+
+  fname: string;
+  lname: string;
+  dob: string;
+  info: string;
+
+  profileDoc: AngularFirestoreDocument<Profile>;
+  profile: Observable<Profile>;
+
+  constructor(private applicationService:ApplicationService) {}
 
   ngOnInit() {
+    
+  }
+  getData(){
+    
   }
 
 }

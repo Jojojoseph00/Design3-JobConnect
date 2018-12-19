@@ -41,6 +41,9 @@ export class StudentprofileComponent implements OnInit {
   addPost2() {
     this.afs.collection('profiles').doc('robert-cook').set({'fname': this.fname, 'lname': this.lname, 'dob': this.dob, 'info': this.info});
   }
+  addPost3() {
+    this.afs.collection('application').doc('robert-cook').set({'fname': this.fname, 'lname': this.lname, 'dob': this.dob, 'info': this.info});
+  }
 
   getPost(postId) {
     this.postDoc = this.afs.doc('profiles/'+postId);
