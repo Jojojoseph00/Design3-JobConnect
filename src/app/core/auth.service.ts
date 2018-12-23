@@ -14,6 +14,8 @@ interface User {
   photoURL?: string;
   displayName?: string;
   favoriteColor?: string;
+  usertype: string;
+  dob: string;
 }
 
 
@@ -62,7 +64,9 @@ export class AuthService {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,
-      photoURL: user.photoURL
+      photoURL: user.photoURL,
+      usertype: user.usertype,
+      dob: user.dob
     }
 
     return userRef.set(data, { merge: true })
@@ -72,7 +76,8 @@ export class AuthService {
 
   signOut() {
     this.afAuth.auth.signOut().then(() => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/user-profile']);
     });
   }
+
 }

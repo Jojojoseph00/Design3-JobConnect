@@ -22,6 +22,10 @@
   <img  [src]="user.photoURL">
   <p>UID: {{ user.uid }}</p>
   <p>Favorite Color: {{ user?.favoriteColor }} </p>
+  <input type="date" [(ngModel)] = 'user.dob' placeholder="date of birth..."/><br>
+  <input type="radio" [(ngModel)] = 'user.usertype' value="employee"/>employee<br>
+  <input type="radio" [(ngModel)] = 'user.usertype' value="student"/>student<br>
+  <button (click)="auth.updateUserData(user)">Save</button>
   <button (click)="auth.signOut()">Logout</button>
 </div>
 </ng-template>
