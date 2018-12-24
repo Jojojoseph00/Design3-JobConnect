@@ -10,6 +10,9 @@ import { EmployerComponent } from './employer/employer.component';
 import { StudentComponent } from './student/student.component';
 import { JobpostComponent } from './jobpost/jobpost.component';
 import { StudentprofileComponent } from './studentprofile/studentprofile.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+//import { NgbdModalBasic} from './employer/employer.component';
+
 
 
 var firebaseConfig = {
@@ -26,7 +29,8 @@ var firebaseConfig = {
     EmployerComponent,
     StudentComponent,
     JobpostComponent,
-    StudentprofileComponent
+    StudentprofileComponent,
+    //NgbdModalBasic
   ],
   imports: [
     FormsModule,
@@ -34,6 +38,7 @@ var firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
     AppRoutingModule,
+    NgbModule.forRoot(),
     RouterModule.forRoot([
       {path: 'employer', component: EmployerComponent},
       {path: 'student', component: StudentComponent},
