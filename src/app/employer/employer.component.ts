@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { StudentprofileComponent } from '../studentprofile/studentprofile.component';
+=======
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+>>>>>>> 98e64b08c41a8b0c28d73b08e5294fdf349da04e
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs'
 import 'rxjs';
@@ -37,6 +41,7 @@ interface ProfileId extends Profile {
 })
 export class EmployerComponent implements OnInit {
 
+  closeResult: string;
   postsCol: AngularFirestoreCollection<Post>;
   posts: any;
   
@@ -67,7 +72,11 @@ export class EmployerComponent implements OnInit {
   applicationDoc: AngularFirestoreDocument<Application>;
   application: Observable<Application>;
 
+<<<<<<< HEAD
   constructor(private afs: AngularFirestore, public auth: AuthService) {}
+=======
+  constructor(private afs: AngularFirestore, private modalService: NgbModal) {}
+>>>>>>> 98e64b08c41a8b0c28d73b08e5294fdf349da04e
 
   ngOnInit() {
     this.postsCol = this.afs.collection('posts');
@@ -92,4 +101,22 @@ export class EmployerComponent implements OnInit {
     document.getElementById("mySidenav").style.width = "0";
   }
 
+  open(content:any) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
+  }
 }
+
