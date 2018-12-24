@@ -12,18 +12,15 @@ import { StudentComponent } from './student/student.component';
 import { JobpostComponent } from './jobpost/jobpost.component';
 import { AuthService } from './core/auth.service';
 import { StudentprofileComponent } from './studentprofile/studentprofile.component';
-<<<<<<< HEAD
 import { ApplicationService } from './application.service';
 import { UserLoginComponent } from './users/user-login/user-login.component';
 import { UserProfileComponent } from './users/user-profile/user-profile.component';
 import { LoginFormComponent } from './users/login-form/login-form.component';
 import { UserFormComponent } from './users/user-form/user-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
-=======
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 //import { NgbdModalBasic} from './employer/employer.component';
 
->>>>>>> 98e64b08c41a8b0c28d73b08e5294fdf349da04e
 
 
 var firebaseConfig = {
@@ -42,14 +39,11 @@ var firebaseConfig = {
     StudentComponent,
     JobpostComponent,
     StudentprofileComponent,
-<<<<<<< HEAD
     UserLoginComponent,
     UserProfileComponent,
     LoginFormComponent,
     UserFormComponent
-=======
     //NgbdModalBasic
->>>>>>> 98e64b08c41a8b0c28d73b08e5294fdf349da04e
   ],
   imports: [
     FormsModule,
