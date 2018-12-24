@@ -136,5 +136,23 @@ export class AuthService {
 
     
   }
+  jobApplication(user){   
+    
+    //this.afs.collection('application').doc(user.uid).set({'displayName': user.displayName, 'dob': user.dob, 'email': user.email})   
+    const userRef2: AngularFirestoreDocument<any> = this.afs.doc(`application/${user.uid}`);
+
+    const data: User = {
+      uid: user.uid,
+      email: user.email,
+      displayName: user.displayName,
+      photoURL: user.photoURL,
+      usertype: user.usertype,
+      dob: user.dob
+
+    }
+
+    return userRef2.set(data, { merge: true }) 
+
+  }
 
 }

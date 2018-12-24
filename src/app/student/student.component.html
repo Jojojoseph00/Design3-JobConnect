@@ -42,7 +42,7 @@
             </li>  
             <li>
               <input type="submit" value="Add a Post" (click)="addPost()">
-              <input type="submit" value="get a Post" (click)="getPost()">
+              
               <div class="clr"></div>
             </li>
           </ol>
@@ -52,19 +52,17 @@
           <h2><span>Job</span> applicants</h2>
           <table>
               <tbody><tr>
-                <th>First name</th> 
-                <th>Last name</th>
+                <th>Name</th> 
+                <th>Email</th>
                 <th>Date of Birth</th>
-                <th>Additional info</th>
+                
                 
                 
               </tr>
-              <tr *ngFor="let profile of profiles | async" >
-                <td>{{profile.fname}} </td>
-                <td>{{profile.lname}}</td>
-                <td>{{profile.dob}}</td>
-                <td>{{profile.info}}</td>
-                    
+              <tr *ngIf="auth.user | async as user">
+                <td>{{ user.displayName }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.dob }}</td>                              
               </tr>    
             </tbody></table>
         </div>

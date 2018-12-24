@@ -46,16 +46,15 @@
         </button>
       </div>
       <div class="modal-body">
-          <tr *ngFor="let profile of profiles | async" >
-              <td>{{profile.fname}} </td>
-              <td>{{profile.lname}}</td>
-              <td>{{profile.dob}}</td>
-              <td>{{profile.info}}</td>
-                  
+          <tr *ngIf="auth.user | async as user">
+              <td>{{ user.displayName }}</td>
+              <td>{{ user.email }}</td>
+              <td>{{ user.dob }}</td>                              
             </tr> 
-          <p>You have successfully submitted your application</p>
+          <p>Please confirm that the details are correct and then click the confirm button to apply</p>
       </div>
-      <div class="modal-footer">
+      <div *ngIf="auth.user | async as user" class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="auth.jobApplication(user)">Confirm</button>
         <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
       </div>
     </ng-template>

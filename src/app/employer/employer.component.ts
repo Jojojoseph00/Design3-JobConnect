@@ -69,7 +69,7 @@ export class EmployerComponent implements OnInit {
   applicationDoc: AngularFirestoreDocument<Application>;
   application: Observable<Application>;
 
-  constructor(private afs: AngularFirestore, private modalService: NgbModal) {}
+  constructor(private afs: AngularFirestore, private modalService: NgbModal, public auth: AuthService) {}
 
   ngOnInit() {
     this.postsCol = this.afs.collection('posts');
