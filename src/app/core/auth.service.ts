@@ -8,7 +8,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 import { Observable, of } from 'rxjs';
 import { switchMap} from 'rxjs/operators';
 
-//import { NotifyService } from './notify.service';
+import { NotifyService } from './notify.service';
 
 interface User {
   uid: string;
