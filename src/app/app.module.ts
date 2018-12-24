@@ -15,6 +15,9 @@ import { StudentprofileComponent } from './studentprofile/studentprofile.compone
 import { ApplicationService } from './application.service';
 import { UserLoginComponent } from './users/user-login/user-login.component';
 import { UserProfileComponent } from './users/user-profile/user-profile.component';
+import { LoginFormComponent } from './users/login-form/login-form.component';
+import { UserFormComponent } from './users/user-form/user-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 var firebaseConfig = {
@@ -34,10 +37,13 @@ var firebaseConfig = {
     JobpostComponent,
     StudentprofileComponent,
     UserLoginComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    LoginFormComponent,
+    UserFormComponent
   ],
   imports: [
     FormsModule,
+    ReactiveFormsModule,
     CoreModule,
     BrowserModule,
     AngularFireModule.initializeApp(firebaseConfig),

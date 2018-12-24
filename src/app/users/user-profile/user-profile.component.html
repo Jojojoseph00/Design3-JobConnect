@@ -7,7 +7,7 @@
 <ng-template #guest>
 <h3>Howdy, GUEST</h3>
 <p>Login to get started...</p>
-
+<user-form></user-form>
 <button (click)="auth.googleLogin()">
   <i class="fa fa-google"></i> Connect Google
 </button>
@@ -18,14 +18,11 @@
 <!-- User logged in -->
 <ng-template #authenticated>
 <div *ngIf="auth.user | async as user">
-  <h3>Howdy, {{ user.displayName }}</h3>
-  <img  [src]="user.photoURL">
-  <p>UID: {{ user.uid }}</p>
-  <p>Favorite Color: {{ user?.favoriteColor }} </p>
-  <input type="date" [(ngModel)] = 'user.dob' placeholder="date of birth..."/><br>
+  <h3>Howdy, {{ user.displayName }} please chose if you are an employee or student.</h3>
   <input type="radio" [(ngModel)] = 'user.usertype' value="employee"/>employee<br>
   <input type="radio" [(ngModel)] = 'user.usertype' value="student"/>student<br>
   <button (click)="auth.updateUserData(user)">Save</button>
+  <button (click)="auth.redirect(user)">Next</button>
   <button (click)="auth.signOut()">Logout</button>
 </div>
 </ng-template>

@@ -8,6 +8,8 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 import { Observable, of } from 'rxjs';
 import { switchMap} from 'rxjs/operators';
 
+//import { NotifyService } from './notify.service';
+
 interface User {
   uid: string;
   email: string;
@@ -16,7 +18,10 @@ interface User {
   favoriteColor?: string;
   usertype: string;
   dob: string;
+  
+
 }
+
 
 
 @Injectable({ providedIn: 'root' })
@@ -27,7 +32,8 @@ export class AuthService {
   constructor(
     private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
-    private router: Router
+    private router: Router,
+    //private notify: NotifyService
   ) {
 
       //// Get auth data, then get firestore user document || null
@@ -46,6 +52,39 @@ export class AuthService {
     const provider = new auth.GoogleAuthProvider()
     return this.oAuthLogin(provider);
   }
+  
+
+    //// Email/Password Auth ////
+
+     emailSignUp(email: string, password: string) {
+      return this.afAuth.auth
+        .createUserWithEmailAndPassword(email, password)
+        .then(credential => {
+          //this.notify.update('Welcome new user!', 'success');
+          this.updateUserData(credential.user); // if using firestore
+        })
+        .catch(error => this.handleError(error));
+    }
+  
+    emailLogin(email: string, password: string) {
+      return this.afAuth.auth
+        .signInWithEmailAndPassword(email, password)
+        .then(credential => {
+          //this.notify.update('Welcome back!', 'success');
+          this.updateUserData(credential.user);
+        })
+        .catch(error => this.handleError(error));
+    }
+  
+    // Sends email allowing user to reset password
+    resetPassword(email: string) {
+      const fbAuth = auth();
+  
+      return fbAuth
+        .sendPasswordResetEmail(email)
+        //.then(() => this.notify.update('Password update email sent', 'info'))
+        .catch(error => this.handleError(error));
+    }
 
   private oAuthLogin(provider) {
     return this.afAuth.auth.signInWithPopup(provider)
@@ -67,17 +106,35 @@ export class AuthService {
       photoURL: user.photoURL,
       usertype: user.usertype,
       dob: user.dob
+
     }
 
     return userRef.set(data, { merge: true })
 
   }
 
+    // If error, console log and notify user
+    private handleError(error: Error) {
+      console.error(error);
+     //this.notify.update(error.message, 'error');
+    }
+
 
   signOut() {
     this.afAuth.auth.signOut().then(() => {
         this.router.navigate(['/user-profile']);
     });
+  }
+
+  redirect(user){
+  
+    if (user.usertype == "employee") {
+      this.router.navigate(['/student']);
+    } else {
+      this.router.navigate(['/employer']);
+    }    
+
+    
   }
 
 }

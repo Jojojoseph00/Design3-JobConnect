@@ -3,6 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Observable } from 'rxjs'
 import 'rxjs';
 import { StudentprofileComponent } from '../studentprofile/studentprofile.component';
+import { AuthService } from '../core/auth.service';
 
 interface Post {
   title: string;
@@ -52,7 +53,7 @@ export class StudentComponent implements OnInit {
   profileDoc: AngularFirestoreDocument<Profile>;
   profile: Observable<Profile>;
 
-  constructor(private afs: AngularFirestore) {}
+  constructor(private afs: AngularFirestore, public auth: AuthService) {}
   
 
   ngOnInit() {

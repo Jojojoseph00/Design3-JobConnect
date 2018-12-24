@@ -3,6 +3,7 @@ import { StudentprofileComponent } from '../studentprofile/studentprofile.compon
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs'
 import 'rxjs';
+import { AuthService } from '../core/auth.service';
 
 
 interface Post {
@@ -66,7 +67,7 @@ export class EmployerComponent implements OnInit {
   applicationDoc: AngularFirestoreDocument<Application>;
   application: Observable<Application>;
 
-  constructor(private afs: AngularFirestore) {}
+  constructor(private afs: AngularFirestore, public auth: AuthService) {}
 
   ngOnInit() {
     this.postsCol = this.afs.collection('posts');
