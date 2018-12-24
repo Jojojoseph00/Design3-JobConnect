@@ -45,6 +45,13 @@
         </button>
       </div>
       <div class="modal-body">
+          <tr *ngFor="let profile of profiles | async" >
+              <td>{{profile.fname}} </td>
+              <td>{{profile.lname}}</td>
+              <td>{{profile.dob}}</td>
+              <td>{{profile.info}}</td>
+                  
+            </tr> 
           <p>You have successfully submitted your application</p>
       </div>
       <div class="modal-footer">
