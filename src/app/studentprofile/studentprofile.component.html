@@ -13,17 +13,25 @@
             <li><a routerLink= '/employer'>Job listing</a></li>
             <li class="active"><a routerLink= '/studentprofile'>Student Profile</a></li>
             <li><a routerLink= '/student'>Publish job</a></li>
+            <li><a routerLink= '/upload'>upload</a></li>
         </ul>
       </div>
       <div class="clr"></div>
     </div>
   </div>
-  <div class="content">
+  <div class="content">   
+          
+    
     <div class="content_resize">
-      
+
       <div class="mainbar">
         <div class="article">
-          <h2><span>Personal</span> Profile</h2>
+          <div class="modal-body">
+              <li *ngIf="auth.user | async as user">
+                  <ul><h2>{{ user.displayName }}</h2></ul>
+                  <ul><img src="{{ user.photoURL }}" alt="{{ user.displayName }}"></ul>           
+              </li> 
+          </div>
           <div class="clr"></div>
           <form action="www.gmail.com" method="post" id="sendemail" *ngIf="auth.user | async as user">
             <ol>
@@ -36,9 +44,14 @@
                 <input type="date" [(ngModel)]="user.dob" name="dob" placeholder="Date of Birth.."/>
               </li>
               <li>
+                  <label for="jobposition">Email:</label>
+                  <input type="text" [(ngModel)]="user.email" name="email" placeholder="Add information.."/>
+                </li>
+              <li>
                 <label for="jobposition">Add information</label>
                 <input type="text" [(ngModel)]="user.info" name="info" placeholder="Add information.."/>
               </li>
+
               <li>
                   <input type="submit" value="Save Profile" (click)="auth.updateUserData(user)">
                   <div class="clr"></div>
@@ -74,9 +87,10 @@
             </ol>
           </form>
         </div>
+        <upload></upload>
       </div>
       
-	  	<div id="mySidenav" class="sidenav">
+	<div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
   
 	 <div class = "side_menu_header">

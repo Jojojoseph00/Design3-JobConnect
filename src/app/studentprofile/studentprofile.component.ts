@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs'
 import 'rxjs';
+import { UploadComponent } from '../upload/upload/upload.component';
 import { AuthService } from '../core/auth.service';
+import { finalize } from 'rxjs/operators';
 
 interface Profile {
   fname: string;
@@ -10,6 +12,7 @@ interface Profile {
   dob: Date;
   info: string;
 }
+
 
 interface ProfileId extends Profile { 
   id: string; 
@@ -33,11 +36,13 @@ export class StudentprofileComponent implements OnInit {
   postDoc: AngularFirestoreDocument<Profile>;
   post: Observable<Profile>;
 
-  constructor(private afs: AngularFirestore, public auth: AuthService) {}
+  constructor(private afs: AngularFirestore, public auth: AuthService, public file: UploadComponent) {}
 
   ngOnInit() {
     this.profilesCol = this.afs.collection('profiles');
     this.profiles = this.profilesCol.valueChanges();
+    
+    
   }
   addPost2() {
     this.afs.collection('profiles').doc('robert-cook').set({'fname': this.fname, 'lname': this.lname, 'dob': this.dob, 'info': this.info});
@@ -46,10 +51,14 @@ export class StudentprofileComponent implements OnInit {
     this.afs.collection('application').doc('robert-cook').set({'fname': this.fname, 'lname': this.lname, 'dob': this.dob, 'info': this.info});
   }
 
-  getPost(postId) {
+  
+
+  /*getPost(postId) {
     this.postDoc = this.afs.doc('profiles/'+postId);
     this.post = this.postDoc.valueChanges();
-  }
+
+    
+  }*/
 
 
   openNav() {
