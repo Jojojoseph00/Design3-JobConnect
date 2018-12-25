@@ -1,3 +1,5 @@
+
+
 <div class="main">
   <div class="header">
 
@@ -55,6 +57,7 @@
                 <th>Name</th> 
                 <th>Email</th>
                 <th>Date of Birth</th>
+                <th>Application</th>
                 
                 
                 
@@ -62,7 +65,29 @@
               <tr *ngIf="auth.user | async as user">
                 <td>{{ user.displayName }}</td>
                 <td>{{ user.email }}</td>
-                <td>{{ user.dob }}</td>                              
+                <td>{{ user.dob }}</td> 
+                <td><ng-template #content let-modal>
+                  <div class="modal-header">
+                    <h4 class="modal-title" id="modal-basic-title">User Profile</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                      <li *ngIf="auth.user | async as user">
+                          <ul><h2>{{ user.displayName }}</h2></ul>
+                          <ul><img src="{{ user.photoURL }}" alt="{{ user.displayName }}" style="width:50%" ></ul>                       
+                          <ul><h2>{{ user.email }}</h2></ul>
+                          <ul><h2>{{ user.dob }}</h2></ul>                              
+                      </li> 
+                      <p>{{ user.info }}</p>
+                  </div>
+                  <div *ngIf="auth.user | async as user" class="modal-footer">
+                    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+                  </div>
+                </ng-template>
+                
+                <button class="btn btn-lg btn-outline-primary" (click)="open(content)">View profile</button>                             
               </tr>    
             </tbody></table>
         </div>

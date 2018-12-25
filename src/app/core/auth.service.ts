@@ -18,6 +18,7 @@ interface User {
   favoriteColor?: string;
   usertype: string;
   dob: string;
+  info: string;
   
 
 }
@@ -28,6 +29,7 @@ interface User {
 export class AuthService {
 
   user: Observable<User>;
+  newUser = true;
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -105,7 +107,8 @@ export class AuthService {
       displayName: user.displayName,
       photoURL: user.photoURL,
       usertype: user.usertype,
-      dob: user.dob
+      dob: user.dob,
+      info: user.info
 
     }
 
@@ -147,7 +150,8 @@ export class AuthService {
       displayName: user.displayName,
       photoURL: user.photoURL,
       usertype: user.usertype,
-      dob: user.dob
+      dob: user.dob,
+      info: user.info
 
     }
 

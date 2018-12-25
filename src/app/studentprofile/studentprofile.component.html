@@ -25,27 +25,22 @@
         <div class="article">
           <h2><span>Personal</span> Profile</h2>
           <div class="clr"></div>
-          <form action="www.gmail.com" method="post" id="sendemail">
+          <form action="www.gmail.com" method="post" id="sendemail" *ngIf="auth.user | async as user">
             <ol>
               <li>
-                <label for="name">First Name: (required)</label>
-                <input type="text" [(ngModel)]="fname" name="fname" placeholder="first name.."/>
-              </li>
-              <li>
-                <label for="location">Last name: (required)</label>
-                <input type="text" [(ngModel)]="lname" name="lname" placeholder="last name.."/>
-                
+                <label for="name">Full name: (required)</label>
+                <input type="text" [(ngModel)]="user.displayName" name="Name" placeholder="Enter full Name.."/>
               </li>
               <li>
                 <label for="jobtitle">Date of Birth: (required)</label>
-                <input type="date" [(ngModel)]="dob" name="dob" placeholder="Date of Birth.."/>
+                <input type="date" [(ngModel)]="user.dob" name="dob" placeholder="Date of Birth.."/>
               </li>
               <li>
                 <label for="jobposition">Add information</label>
-                <input type="text" [(ngModel)]="info" name="info" placeholder="Add information.."/>
+                <input type="text" [(ngModel)]="user.info" name="info" placeholder="Add information.."/>
               </li>
               <li>
-                  <input type="submit" value="Save Profile" (click)="addPost3()">
+                  <input type="submit" value="Save Profile" (click)="auth.updateUserData(user)">
                   <div class="clr"></div>
                 </li>
 			  
