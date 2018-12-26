@@ -16,6 +16,18 @@ interface Post {
   location: string;
 }
 
+interface Application {
+  uid: string;
+  email: string;
+  photoURL?: string;
+  displayName?: string;
+  favoriteColor?: string;
+  usertype: string;
+  dob: string;
+  info: string;  
+}
+
+
 /*interface Profile {
   fname: string;
   lname: string;
@@ -49,6 +61,24 @@ export class StudentComponent implements OnInit {
   content: string;
   location: string;
 
+  applicationCol: AngularFirestoreCollection<Application>;
+  applications: any; 
+
+  uid: string;
+  email: string;
+  photoURL?: string;
+  displayName?: string;
+  favoriteColor?: string;
+  usertype: string;
+  dob: string;
+  info: string;  
+
+
+  applicationDoc: AngularFirestoreDocument<Application>;
+  application: Observable<Application>;
+
+
+
   //postDoc: AngularFirestoreDocument<Post>;
   //post: Observable<Post>;
 
@@ -71,6 +101,8 @@ export class StudentComponent implements OnInit {
   ngOnInit() {
     this.postsCol = this.afs.collection('posts');    
     this.posts = this.postsCol.valueChanges();
+    this.applicationCol = this.afs.collection('application');
+    this.applications = this.applicationCol.valueChanges();
     
     
     
