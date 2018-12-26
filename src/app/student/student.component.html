@@ -1,3 +1,5 @@
+
+
 <div class="main">
   <div class="header">
 
@@ -13,6 +15,7 @@
               <li><a routerLink= '/employer'>Job listing</a></li>
               <li><a routerLink= '/studentprofile'>Student Profile</a></li>
               <li class="active"><a routerLink= '/student'>Publish job</a></li>
+              <li><a (click)="auth.signOut()">sign out</a></li>
           </ul>
         </div>
         <div class="clr"></div>
@@ -41,6 +44,7 @@
             </li>  
             <li>
               <input type="submit" value="Add a Post" (click)="addPost()">
+              
               <div class="clr"></div>
             </li>
           </ol>
@@ -50,19 +54,41 @@
           <h2><span>Job</span> applicants</h2>
           <table>
               <tbody><tr>
-                <th>First name</th> 
-                <th>Last name</th>
+                <th>Name</th> 
+                <th>Email</th>
                 <th>Date of Birth</th>
-                <th>Additional info</th>
+                <th>Application</th>
+                
                 
                 
               </tr>
-              <tr *ngFor="let profile of profiles | async" >
-                <td>{{profile.fname}} </td>
-                <td>{{profile.lname}}</td>
-                <td>{{profile.dob}}</td>
-                <td>{{profile.info}}</td>
-                    
+              <tr *ngIf="auth.user | async as user">
+                <td>{{ user.displayName }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.dob }}</td> 
+                <td><ng-template #content let-modal>
+                  <div class="modal-header">
+                    <h4 class="modal-title" id="modal-basic-title">User Profile</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                      <li *ngIf="auth.user | async as user">
+                          <ul><h2>{{ user.displayName }}</h2></ul>
+                          <ul><img src="{{ user.photoURL }}" alt="{{ user.displayName }}"></ul>                       
+                          <ul><h2>{{ user.email }}</h2></ul>
+                          <ul><h2>{{ user.dob }}</h2></ul>                              
+                      </li> 
+                      <h2>Discription</h2>
+                      <p>{{ user.info }}</p>
+                  </div>
+                  <div *ngIf="auth.user | async as user" class="modal-footer">
+                    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+                  </div>
+                </ng-template>
+                
+                <button class="btn btn-lg btn-outline-primary" (click)="open(content)">View profile</button>                             
               </tr>    
             </tbody></table>
         </div>
