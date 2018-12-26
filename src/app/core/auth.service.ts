@@ -202,7 +202,7 @@ export class AuthService {
     if (user.usertype == "employee") {
       this.router.navigate(['/student']);
     } else {
-      this.router.navigate(['/employer']);
+      this.router.navigate(['/studentprofile']);
     }    
 
     
