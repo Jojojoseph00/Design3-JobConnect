@@ -18,10 +18,22 @@ interface User {
   favoriteColor?: string;
   usertype: string;
   dob: string;
-  info: string;
+  info: string;  
   
 
 }
+
+/*interface User2 {
+  uid: string;
+  email: string;
+  photoURL?: string;
+  displayName?: string;
+  favoriteColor?: string;
+  usertype: string;
+  dob: string;
+  info: string;  
+
+}*/
 
 
 
@@ -29,6 +41,7 @@ interface User {
 export class AuthService {
 
   user: Observable<User>;
+  //user2: Observable<User2>;
   newUser = true;
 
   constructor(
@@ -48,6 +61,17 @@ export class AuthService {
           }
         })
       )
+
+      /*//// Get auth data, then get firestore user document || null
+      this.user = this.afAuth.authState.pipe(
+        switchMap(user2 => {
+          if (user2) {
+            return this.afs.doc<User2>(`user2/${user2.uid}`).valueChanges()
+          } else {
+            return of(null)
+          }
+        })
+      )*/
     }
 
   googleLogin() {
@@ -106,9 +130,10 @@ export class AuthService {
       email: user.email,
       displayName: user.displayName,
       photoURL: user.photoURL,
-      usertype: user.usertype,
-      dob: user.dob,
-      info: user.info
+      usertype: '',
+      dob: '',
+      info: ''
+      
 
     }
 
@@ -116,8 +141,7 @@ export class AuthService {
 
   }
 
-
-  private updateUserDat2(user) {
+  private updateUserData3(user) {
     // Sets user data to firestore on login
 
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
@@ -138,6 +162,28 @@ export class AuthService {
 
   }
 
+
+ /*private updateUserDat2(user2) {
+    // Sets user data to firestore on login
+
+    const userRef: AngularFirestoreDocument<any> = this.afs.doc(`user2/${user2.uid}`);
+
+    const data: User2 = {
+      uid: user2.uid,
+      email: user2.email,
+      displayName: user2.displayName,
+      photoURL: user2.photoURL,
+      usertype: user2.usertype,
+      dob: user2.dob,
+      info: user2.info
+      
+
+    }
+
+    return userRef.set(data, { merge: true })
+
+  }*/
+
     // If error, console log and notify user
     private handleError(error: Error) {
       console.error(error);
@@ -156,12 +202,13 @@ export class AuthService {
     if (user.usertype == "employee") {
       this.router.navigate(['/student']);
     } else {
-      this.router.navigate(['/employer']);
+      this.router.navigate(['/studentprofile']);
     }    
 
     
   }
   jobApplication(user){   
+    
     
     //this.afs.collection('application').doc(user.uid).set({'displayName': user.displayName, 'dob': user.dob, 'email': user.email})   
     const userRef2: AngularFirestoreDocument<any> = this.afs.doc(`application/${user.uid}`);

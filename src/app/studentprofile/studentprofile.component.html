@@ -13,7 +13,7 @@
             <li><a routerLink= '/employer'>Job listing</a></li>
             <li class="active"><a routerLink= '/studentprofile'>Student Profile</a></li>
             <li><a routerLink= '/student'>Publish job</a></li>
-            <li><a routerLink= '/upload'>upload</a></li>
+            <li><a (click)="auth.signOut()">sign out</a></li>
         </ul>
       </div>
       <div class="clr"></div>
@@ -53,7 +53,7 @@
               </li>
 
               <li>
-                  <input type="submit" value="Save Profile" (click)="auth.updateUserData(user)">
+                  <input type="submit" value="Save Profile" (click)="auth.updateUserData3(user)">
                   <div class="clr"></div>
                 </li>
 			  

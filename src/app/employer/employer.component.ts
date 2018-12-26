@@ -13,12 +13,7 @@ interface Post {
   location: string;
 }
 
-interface Profile {
-  fname: string;
-  lname: string;
-  dob: Date;
-  info: string;
-}
+
 
 interface Application {
   title: string;
@@ -26,9 +21,7 @@ interface Application {
   location: string;
 }
 
-interface ProfileId extends Profile { 
-  id: string; 
-}
+
 
 
 @Component({
@@ -49,21 +42,9 @@ export class EmployerComponent implements OnInit {
   postDoc: AngularFirestoreDocument<Post>;
   post: Observable<Post>;
 
-  profilesCol: AngularFirestoreCollection<Profile>;
-  profiles: any;
-
-  fname: string;
-  lname: string;
-  dob: Date;
-  info: string;
-
-  profileDoc: AngularFirestoreDocument<Profile>;
-  profile: Observable<Profile>;
 
   applicationCol: AngularFirestoreCollection<Application>;
-  applications: any;
-
-  
+  applications: any; 
 
 
   applicationDoc: AngularFirestoreDocument<Application>;
@@ -73,19 +54,12 @@ export class EmployerComponent implements OnInit {
 
   ngOnInit() {
     this.postsCol = this.afs.collection('posts');
-    this.profilesCol = this.afs.collection('profiles');
     this.posts = this.postsCol.valueChanges();
-    this.profiles = this.profilesCol.valueChanges();
     this.applicationCol = this.afs.collection('profiles');
     this.applications = this.applicationCol.valueChanges();
     
   }
 
-
-  addPost2() {
-    
-    this.afs.collection('profiles').doc('robert-cook').set({'fname': this.fname, 'lname': this.lname, 'dob': this.dob, 'info': this.info});
-  }
   openNav() {
     document.getElementById("mySidenav").style.width = "250px";
   }
