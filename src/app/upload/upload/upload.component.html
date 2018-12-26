@@ -39,8 +39,6 @@
 <div *ngIf="downloadURL | async as url">
     <h3>Results!</h3>
     <img [src]="url">
-    <embed [src]="url" type="application/pdf" width="100%" height="600px" />
-    <br>
     <a [href]="url" target="_blank" rel="noopener">Download Me!</a>
   </div>
 
