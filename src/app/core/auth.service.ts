@@ -201,11 +201,11 @@ export class AuthService {
   
     if (user.usertype == "employee") {
       this.router.navigate(['/student']);
-      document.getElementById('hide').style.display='block';
       
-    }
-    
-    return false;
+      
+    } else {
+      this.router.navigate(['/studentprofile']);
+    }    
 
     
   }
