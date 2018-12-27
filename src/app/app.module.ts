@@ -27,6 +27,7 @@ import { DropZoneDirective } from './upload/drop-zone.directive';
 
 
 
+
 var firebaseConfig = {
   apiKey: "AIzaSyBVuSFduxGn2LTVSJcm06wwkabdNR8W8_k",
   authDomain: "firestore-637f9.firebaseapp.com",
@@ -50,8 +51,11 @@ var firebaseConfig = {
     UserFormComponent,
     UploadComponent,
     FileSizePipe,
-    DropZoneDirective
+    DropZoneDirective,
     //NgbdModalBasic
+    UploadComponent, 
+    DropZoneDirective, 
+    FileSizePipe
   ],
   imports: [
     FormsModule,
