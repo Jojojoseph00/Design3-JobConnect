@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {  AngularFireStorage,  AngularFireUploadTask} from '@angular/fire/storage';
 import {RouterModule, Routes} from '@angular/router';
+import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularFireModule } from 'angularfire2';
@@ -9,39 +11,73 @@ import { FormsModule } from '@angular/forms';
 import { EmployerComponent } from './employer/employer.component';
 import { StudentComponent } from './student/student.component';
 import { JobpostComponent } from './jobpost/jobpost.component';
+import { AuthService } from './core/auth.service';
 import { StudentprofileComponent } from './studentprofile/studentprofile.component';
+import { ApplicationService } from './application.service';
+import { UserLoginComponent } from './users/user-login/user-login.component';
+import { UserProfileComponent } from './users/user-profile/user-profile.component';
+import { LoginFormComponent } from './users/login-form/login-form.component';
+import { UserFormComponent } from './users/user-form/user-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { UploadComponent } from './upload/upload/upload.component';
+import { FileSizePipe } from './upload/file-size.pipe';
+import { DropZoneDirective } from './upload/drop-zone.directive';
+//import { NgbdModalBasic} from './employer/employer.component';
+
 
 
 var firebaseConfig = {
   apiKey: "AIzaSyBVuSFduxGn2LTVSJcm06wwkabdNR8W8_k",
   authDomain: "firestore-637f9.firebaseapp.com",
   databaseURL: "https://firestore.firebaseio.com",
+  storageBucket: "firestore-637f9.appspot.com",
   projectId: "firestore-637f9"
 
 };
 
 @NgModule({
   declarations: [
+   
     AppComponent,
     EmployerComponent,
     StudentComponent,
     JobpostComponent,
-    StudentprofileComponent
+    StudentprofileComponent,
+    UserLoginComponent,
+    UserProfileComponent,
+    LoginFormComponent,
+    UserFormComponent,
+    UploadComponent,
+    FileSizePipe,
+    DropZoneDirective
+    //NgbdModalBasic
   ],
   imports: [
     FormsModule,
+    ReactiveFormsModule,
+    CoreModule,
     BrowserModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
     AppRoutingModule,
+    NgbModule.forRoot(),
     RouterModule.forRoot([
       {path: 'employer', component: EmployerComponent},
+      {path: 'user-profile', component: UserProfileComponent},
       {path: 'student', component: StudentComponent},
       {path: 'jobpost', component: JobpostComponent},
-      {path: 'studentprofile', component: StudentprofileComponent}
+      {path: 'studentprofile', component: StudentprofileComponent},
+      {path: 'upload', component: UploadComponent}
     ])
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    AngularFireStorage,
+    AngularFirestoreModule,
+    UploadComponent
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

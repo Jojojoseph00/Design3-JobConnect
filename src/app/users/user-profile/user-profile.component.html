@@ -1,0 +1,31 @@
+<div *ngIf="auth.user | async; then authenticated else guest" >
+  <!-- template will replace this div -->
+</div>
+
+
+<!-- User NOT logged in -->
+<ng-template #guest>
+<div class="login-card">
+<h3>Howdy, GUEST</h3>
+<p>Login to get started...</p>
+<user-form></user-form>
+<button class="loginBtn loginBtn--google" (click)="auth.googleLogin()">
+    Login with Google
+</button>
+
+</div>  
+</ng-template>
+
+
+<!-- User logged in -->
+<ng-template #authenticated>
+<div *ngIf="auth.user | async as user">
+  <h3>Howdy, {{ user.displayName }} please chose if you are an employee or student.</h3>
+  <input type="radio" [(ngModel)] = 'user.usertype' value="employee"/>employee<br>
+  <input type="radio" [(ngModel)] = 'user.usertype' value="student"/>student<br>
+  <button (click)="auth.updateUserData3(user)">Save</button>
+  <button (click)="auth.redirect(user)">Next</button>
+  
+  <button (click)="auth.signOut()">Logout</button>
+</div>
+</ng-template>
