@@ -18,7 +18,8 @@ interface User {
   favoriteColor?: string;
   usertype: string;
   dob: string;
-  info: string;  
+  info: string;
+  category: string;  
   
 
 }
@@ -45,6 +46,7 @@ export class AuthService {
   
 
   constructor(
+
     private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
     private router: Router,
@@ -132,7 +134,8 @@ export class AuthService {
       photoURL: user.photoURL,
       usertype: '',
       dob: '',
-      info: ''
+      info: '',
+      category: ''
       
 
     }
@@ -153,7 +156,8 @@ export class AuthService {
       photoURL: user.photoURL,
       usertype: user.usertype,
       dob: user.dob,
-      info: user.info
+      info: user.info,
+      category: user.category
       
 
     }
@@ -222,12 +226,14 @@ export class AuthService {
       photoURL: user.photoURL,
       usertype: user.usertype,
       dob: user.dob,
-      info: user.info
+      info: user.info,
+      category: user.category
 
     }
 
     return userRef2.set(data, { merge: true }) 
 
   }
+  
 
 }

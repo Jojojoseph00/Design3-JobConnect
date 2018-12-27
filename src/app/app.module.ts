@@ -28,6 +28,7 @@ import { DropZoneDirective } from './upload/drop-zone.directive';
 
 
 
+
 var firebaseConfig = {
   apiKey: "AIzaSyBVuSFduxGn2LTVSJcm06wwkabdNR8W8_k",
   authDomain: "firestore-637f9.firebaseapp.com",
@@ -70,7 +71,8 @@ var firebaseConfig = {
       // {path: 'jobpost', component: JobpostComponent},
       {path: 'studentprofile', component: StudentprofileComponent},
       {path: 'upload', component: UploadComponent}
-    ])
+    ]),
+   
   ],
   providers: [
     AuthService,
