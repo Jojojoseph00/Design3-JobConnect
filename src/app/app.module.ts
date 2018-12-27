@@ -51,11 +51,8 @@ var firebaseConfig = {
     UserFormComponent,
     UploadComponent,
     FileSizePipe,
-    DropZoneDirective,
+    DropZoneDirective
     //NgbdModalBasic
-    UploadComponent, 
-    DropZoneDirective, 
-    FileSizePipe
   ],
   imports: [
     FormsModule,
