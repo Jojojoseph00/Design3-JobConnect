@@ -42,7 +42,7 @@ export class AuthService {
 
   user: Observable<User>;
   //user2: Observable<User2>;
-  newUser = true;
+  
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -201,9 +201,11 @@ export class AuthService {
   
     if (user.usertype == "employee") {
       this.router.navigate(['/student']);
-    } else {
-      this.router.navigate(['/studentprofile']);
-    }    
+      document.getElementById('hide').style.display='block';
+      
+    }
+    
+    return false;
 
     
   }
