@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs'
 import 'rxjs';
-import { UploadComponent } from '../upload/upload/upload.component';
+import { UploadComponent } from '../upload/upload.component';
 import { AuthService } from '../core/auth.service';
 import { finalize } from 'rxjs/operators';
 

@@ -20,7 +20,7 @@ import { LoginFormComponent } from './users/login-form/login-form.component';
 import { UserFormComponent } from './users/user-form/user-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { UploadComponent } from './upload/upload/upload.component';
+import { UploadComponent } from './upload/upload.component';
 import { FileSizePipe } from './upload/file-size.pipe';
 import { DropZoneDirective } from './upload/drop-zone.directive';
 //import { NgbdModalBasic} from './employer/employer.component';

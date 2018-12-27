@@ -6,7 +6,7 @@ import {
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { tap, finalize } from 'rxjs/operators';
-import { AuthService } from '../../core/auth.service';
+import { AuthService } from '../core/auth.service';
 
 @Component({
   selector: 'upload',
