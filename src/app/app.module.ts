@@ -10,7 +10,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { FormsModule } from '@angular/forms';
 import { EmployerComponent } from './employer/employer.component';
 import { StudentComponent } from './student/student.component';
-import { JobpostComponent } from './jobpost/jobpost.component';
+// import { JobpostComponent } from './jobpost/jobpost.component';
 import { AuthService } from './core/auth.service';
 import { StudentprofileComponent } from './studentprofile/studentprofile.component';
 import { ApplicationService } from './application.service';
@@ -43,7 +43,7 @@ var firebaseConfig = {
     AppComponent,
     EmployerComponent,
     StudentComponent,
-    JobpostComponent,
+    // JobpostComponent,
     StudentprofileComponent,
     UserLoginComponent,
     UserProfileComponent,
@@ -67,7 +67,7 @@ var firebaseConfig = {
       {path: 'employer', component: EmployerComponent},
       {path: 'user-profile', component: UserProfileComponent},
       {path: 'student', component: StudentComponent},
-      {path: 'jobpost', component: JobpostComponent},
+      // {path: 'jobpost', component: JobpostComponent},
       {path: 'studentprofile', component: StudentprofileComponent},
       {path: 'upload', component: UploadComponent}
     ])
