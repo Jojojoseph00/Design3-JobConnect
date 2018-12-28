@@ -79,7 +79,24 @@
                 <input type="radio" [(ngModel)]="user.category" value="Engineers"/>
               </li>
               <li>
-                <input type="submit" value="Save Profile" (click)="auth.updateUserData3(user)">
+                  
+                        <ng-template #content let-modal>
+                        <div class="modal-header">
+                          <h4 class="modal-title" id="modal-basic-title">Confirmation</h4>
+                          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                            
+                            <p>Details are saved!</p>
+                        </div>
+                        <div *ngIf="auth.user | async as user" class="modal-footer">
+                          <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+                        </div>
+                      </ng-template>
+                <input type="submit" value="Save Profile" (click)="auth.updateUserData3(user)"  (click)="open(content)">
+                
               </li>
             </ol>
         </div>

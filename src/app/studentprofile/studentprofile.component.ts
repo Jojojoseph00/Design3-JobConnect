@@ -5,6 +5,7 @@ import 'rxjs';
 import { UploadComponent } from '../upload/upload.component';
 import { AuthService } from '../core/auth.service';
 import { finalize } from 'rxjs/operators';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 interface Profile {
   fname: string;
@@ -35,8 +36,9 @@ export class StudentprofileComponent implements OnInit {
 
   postDoc: AngularFirestoreDocument<Profile>;
   post: Observable<Profile>;
+  closeResult: string;
 
-  constructor(private afs: AngularFirestore, public auth: AuthService, public file: UploadComponent) {}
+  constructor(private afs: AngularFirestore, private modalService: NgbModal, public auth: AuthService, public file: UploadComponent) {}
 
   ngOnInit() {
     this.profilesCol = this.afs.collection('profiles');
@@ -69,5 +71,21 @@ export class StudentprofileComponent implements OnInit {
     document.getElementById("mySidenav").style.width = "0";
   }
   
+  open(content:any) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
+  }
 
 }

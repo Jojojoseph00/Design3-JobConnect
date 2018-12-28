@@ -10,6 +10,7 @@ import { switchMap} from 'rxjs/operators';
 
 import { NotifyService } from './notify.service';
 
+
 interface User {
   uid: string;
   email: string;
@@ -50,6 +51,7 @@ export class AuthService {
     private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
     private router: Router,
+    
     //private notify: NotifyService
   ) {
 
@@ -159,7 +161,6 @@ export class AuthService {
       info: user.info,
       category: user.category
       
-
     }
 
     return userRef.set(data, { merge: true })
