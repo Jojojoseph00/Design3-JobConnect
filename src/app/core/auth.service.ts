@@ -20,7 +20,8 @@ interface User {
   usertype: string;
   dob: string;
   info: string;
-  category: string;  
+  category: string;
+  skill: string;
   
 
 }
@@ -137,7 +138,8 @@ export class AuthService {
       usertype: '',
       dob: '',
       info: '',
-      category: ''
+      category: '',
+      skill: ''
       
 
     }
@@ -159,7 +161,8 @@ export class AuthService {
       usertype: user.usertype,
       dob: user.dob,
       info: user.info,
-      category: user.category
+      category: user.category,
+      skill: user.skill
       
     }
 
@@ -228,7 +231,8 @@ export class AuthService {
       usertype: user.usertype,
       dob: user.dob,
       info: user.info,
-      category: user.category
+      category: user.category,
+      skill: user.skill
 
     }
 

@@ -24,7 +24,11 @@ interface ProfileId extends Profile {
   templateUrl: './studentprofile.component.html',
   styleUrls: ['./studentprofile.component.css']
 })
+
+
+
 export class StudentprofileComponent implements OnInit {
+
 
   profilesCol: AngularFirestoreCollection<Profile>;
   profiles: any;
@@ -38,7 +42,10 @@ export class StudentprofileComponent implements OnInit {
   post: Observable<Profile>;
   closeResult: string;
 
-  constructor(private afs: AngularFirestore, private modalService: NgbModal, public auth: AuthService, public file: UploadComponent) {}
+  constructor(private afs: AngularFirestore, 
+    private modalService: NgbModal,
+     public auth: AuthService, 
+     public file: UploadComponent) {}
 
   ngOnInit() {
     this.profilesCol = this.afs.collection('profiles');
@@ -88,4 +95,10 @@ export class StudentprofileComponent implements OnInit {
     }
   }
 
+
 }
+
+
+
+
+

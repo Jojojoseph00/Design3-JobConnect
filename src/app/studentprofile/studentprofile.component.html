@@ -66,20 +66,55 @@
           <h2><span>Technical</span> Profile</h2>
           <div class="clr"></div>
             <ol >
-              <li>
-                <label for="name" >Business</label>
-                <input type="radio" [(ngModel)]="user.category" value="Business" />
-              </li>
-              <li>
-                <label for="name2" >Information Technology</label>
-                <input type="radio" [(ngModel)]="user.category" value="Information Technology"/>
-              </li>
-              <li>
-                <label for="name3" >Engineers</label>
-                <input type="radio" [(ngModel)]="user.category" value="Engineers"/>
-              </li>
-              <li>
+                
+                  <div>
+                    <div>
+                      <input type="radio" id="Business" [(ngModel)]="user.category" value="Business">
+                      <label for="Business">Business</label>
+                    
+                      <div class="reveal-if-active">
+                          <input type="checkbox" id="business" name="business" class="require-if-active" data-require-pair="#Business" [(ngModel)]="user.skill" value="Finance">
+                        <label for="business">Finance</label>
+                        
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <input type="radio" id="Information Technology" [(ngModel)]="user.category" value="Information Technology"  >
+                      <label for="Information Technology">Information Technology</label>
+                    
+                      <div class="reveal-if-active">
+                          <input type="checkbox" id="IT" name="IT" class="require-if-active" data-require-pair="#Information Technology" [(ngModel)]="user.skill" value="Java">
+                        <label for="IT">Java</label>
+                        
+                      </div>
+                    </div>
+
+
+                    <div>
+                        <input type="radio" id="Engineers" [(ngModel)]="user.category" value="Engineers">
+                        <label for="Engineers">Engineers</label>
+                      
+                        <div class="reveal-if-active">
+                            <input type="checkbox" id="Engineers" name="Engineers" class="require-if-active" data-require-pair="#Engineers" [(ngModel)]="user.skill" value="Mechanical Engineer"> 
+                          <label for="Engineers">Mechanical Engineer</label>
+                          
+                        </div>
+                      </div>
+                      
+                  </div>
                   
+                  
+                  
+      
+                      
+                
+
+
+
+
+
+              <li>
                         <ng-template #content let-modal>
                         <div class="modal-header">
                           <h4 class="modal-title" id="modal-basic-title">Confirmation</h4>
