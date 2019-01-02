@@ -69,7 +69,8 @@ var firebaseConfig = {
       {path: 'jobpost', component: JobpostComponent},
       {path: 'studentprofile', component: StudentprofileComponent},
       {path: 'upload', component: UploadComponent}
-    ])
+    ]),
+
   ],
   providers: [
     AuthService,
