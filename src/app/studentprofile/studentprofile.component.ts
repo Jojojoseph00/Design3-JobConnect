@@ -5,7 +5,7 @@ import 'rxjs';
 import { UploadComponent } from '../upload/upload.component';
 import { AuthService } from '../core/auth.service';
 import { finalize } from 'rxjs/operators';
-
+import { Options } from 'ng5-slider';
 interface Profile {
   fname: string;
   lname: string;
@@ -17,7 +17,20 @@ interface Profile {
 interface ProfileId extends Profile { 
   id: string; 
 }
-
+@Component({
+  selector: 'app-ticks-values-slider',
+  templateUrl: './studentprofile.component.html'
+})
+export class TicksValuesSliderComponent {
+  value: number = 5;
+  options: Options = {
+    floor: 0,
+    ceil: 10,
+    step: 1,
+    showTicks: true,
+    showTicksValues: true
+  };
+}
 @Component({
   selector: 'app-studentprofile',
   templateUrl: './studentprofile.component.html',
@@ -50,6 +63,7 @@ export class StudentprofileComponent implements OnInit {
   addPost3() {
     this.afs.collection('application').doc('robert-cook').set({'fname': this.fname, 'lname': this.lname, 'dob': this.dob, 'info': this.info});
   }
+
 
   
 
