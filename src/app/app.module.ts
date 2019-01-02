@@ -24,6 +24,12 @@ import { UploadComponent } from './upload/upload.component';
 import { FileSizePipe } from './upload/file-size.pipe';
 import { DropZoneDirective } from './upload/drop-zone.directive';
 //import { NgbdModalBasic} from './employer/employer.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatSliderModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+
+
+
 
 
 
@@ -46,6 +52,7 @@ var firebaseConfig = {
 
 
 @NgModule({
+
   declarations: [
    
     AppComponent,
@@ -61,7 +68,6 @@ var firebaseConfig = {
     FileSizePipe,
     DropZoneDirective,
     //NgbdModalBasic
-   
    
   ],
   imports: [
@@ -81,7 +87,9 @@ var firebaseConfig = {
       {path: 'studentprofile', component: StudentprofileComponent},
       {path: 'upload', component: UploadComponent}
     ]),
-  
+    BrowserAnimationsModule,
+    MatSliderModule,
+    MatButtonModule, MatCheckboxModule
   ],
   providers: [
     AuthService,

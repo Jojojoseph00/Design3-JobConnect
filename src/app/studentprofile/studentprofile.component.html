@@ -73,29 +73,40 @@
                       <label for="Business">Business</label>
                     
                       <div class="reveal-if-active">
-                          <input type="checkbox" id="business" name="business" class="require-if-active" data-require-pair="#Business" [(ngModel)]="user.skill" value="Finance">
+                         
+                  
                         <label for="business">Finance</label>
+                        <br>
+                        <mat-slider min="0" max="3" step="1" thumbLabel
+                        [displayWith]="formatLabel"
+                        tickInterval="1"
+                        id="business" name="business" class="require-if-active" data-require-pair="#Business" [(ngModel)]="user.skill" value="Finance"></mat-slider>
                         
                       </div>
                     </div>
                     
+                   
+                    
+
                     <div>
                       <input type="radio" id="Information Technology" [(ngModel)]="user.category" value="Information Technology"  >
                       <label for="Information Technology">Information Technology</label>
                     
                       <div class="reveal-if-active">
+
                           <input type="checkbox" id="IT" name="IT" class="require-if-active" data-require-pair="#Information Technology" [(ngModel)]="user.skill" value="Java">
                         <label for="IT">Java</label>
                         
                       </div>
                     </div>
-
+                    
 
                     <div>
                         <input type="radio" id="Engineers" [(ngModel)]="user.category" value="Engineers">
                         <label for="Engineers">Engineers</label>
                       
                         <div class="reveal-if-active">
+                           
                             <input type="checkbox" id="Engineers" name="Engineers" class="require-if-active" data-require-pair="#Engineers" [(ngModel)]="user.skill" value="Mechanical Engineer"> 
                           <label for="Engineers">Mechanical Engineer</label>
                           
@@ -104,9 +115,7 @@
                       
                   </div>
                   
-                  
-                  
-      
+                
                       
                 
 

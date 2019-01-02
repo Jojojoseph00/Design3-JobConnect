@@ -7,6 +7,8 @@ import { AuthService } from '../core/auth.service';
 import { finalize } from 'rxjs/operators';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
+
+
 interface Profile {
   fname: string;
   lname: string;
@@ -26,9 +28,8 @@ interface ProfileId extends Profile {
 })
 
 
-
 export class StudentprofileComponent implements OnInit {
-
+rangeValue: any;
 
   profilesCol: AngularFirestoreCollection<Profile>;
   profiles: any;
@@ -95,8 +96,8 @@ export class StudentprofileComponent implements OnInit {
     }
   }
 
-
 }
+
 
 
 

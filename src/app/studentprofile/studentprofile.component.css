@@ -3,6 +3,11 @@
     width: 10%;
 }
 
+mat-slider {
+    width: 300px;
+    
+  }  
+
 .reveal-if-active {
     opacity: 0;
     max-height: 0;
