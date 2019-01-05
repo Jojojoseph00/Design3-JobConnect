@@ -24,7 +24,8 @@ import { FileSizePipe } from './upload/file-size.pipe';
 import { DropZoneDirective } from './upload/drop-zone.directive';
 import { UiModule } from './ui/ui.module';
 //import { NgbdModalBasic} from './employer/employer.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap'; 
+
 
 
 
