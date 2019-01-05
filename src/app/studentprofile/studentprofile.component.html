@@ -80,7 +80,7 @@
                         <mat-slider min="0" max="3" step="1" thumbLabel
                         [displayWith]="formatLabel"
                         tickInterval="1"
-                        id="business" name="business" class="require-if-active" data-require-pair="#Business" [(ngModel)]="user.skill" value="Finance"></mat-slider>
+                        id="business" name="business" class="require-if-active" data-require-pair="#Business" [(ngModel)]="user.skill" value="Finance" (change)="auth.updateUserData3(user)" ></mat-slider>
                         
                       </div>
                     </div>
@@ -99,7 +99,7 @@
                         <mat-slider min="0" max="3" step="1" thumbLabel
                         [displayWith]="formatLabel"
                         tickInterval="1"
-                        id="IT" name="IT" class="require-if-active" data-require-pair="#Information Technology" [(ngModel)]="user.skill" value="Java"></mat-slider>
+                        id="IT" name="IT" class="require-if-active" data-require-pair="#Information Technology" [(ngModel)]="user.skill" value="Java" (change)="auth.updateUserData3(user)"></mat-slider>
                         
                       </div>
                     </div>
@@ -116,40 +116,11 @@
                           <mat-slider min="0" max="3" step="1" thumbLabel
                           [displayWith]="formatLabel"
                           tickInterval="1"
-                          id="Engineers" name="Engineers" class="require-if-active" data-require-pair="#Engineers" [(ngModel)]="user.skill" value="Mechanical Engineer"></mat-slider>
+                          id="Engineers" name="Engineers" class="require-if-active" data-require-pair="#Engineers" [(ngModel)]="user.skill" value="Mechanical Engineer"(change)="auth.updateUserData3(user)" ></mat-slider>
                           
                         </div>
                       </div>
-                      
                   </div>
-                  
-                
-                      
-                
-
-
-
-
-
-              <li>
-                        <ng-template #content let-modal>
-                        <div class="modal-header">
-                          <h4 class="modal-title" id="modal-basic-title">Confirmation</h4>
-                          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                            
-                            <p>Details are saved!</p>
-                        </div>
-                        <div *ngIf="auth.user | async as user" class="modal-footer">
-                          <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
-                        </div>
-                      </ng-template>
-                <input type="submit" value="Save Profile" (click)="auth.updateUserData3(user)"  (click)="open(content)">
-                
-              </li>
             </ol>
         </div>
         <upload></upload>
