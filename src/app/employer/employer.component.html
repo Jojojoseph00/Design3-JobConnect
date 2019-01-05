@@ -38,7 +38,8 @@
     <td>{{post.title}}</td>
     <td>{{post.content}}</td>
     <td>{{post.location}}</td>
-    <td><ng-template #content let-modal>
+    <td>
+      <ng-template #content let-modal>
       <div class="modal-header">
         <h4 class="modal-title" id="modal-basic-title">Confirmation</h4>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
@@ -54,7 +55,7 @@
           <p>Please confirm that the details are correct and then click the confirm button to apply</p>
       </div>
       <div *ngIf="auth.user | async as user" class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="auth.jobApplication(user)">Confirm</button>
+        <button type="button" class="btn btn-outline-dark" (click)="auth.jobApplication(user)"(click)="modal.close('Save click')">Confirm</button>
         <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
       </div>
     </ng-template>

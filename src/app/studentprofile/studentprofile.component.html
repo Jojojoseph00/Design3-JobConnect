@@ -62,30 +62,95 @@
         </div>
       </div>
 	  <div class="mainbar2">
-        <div class="article">
+        <div class="article" *ngIf="auth.user | async as user">
           <h2><span>Technical</span> Profile</h2>
           <div class="clr"></div>
-          <form action="www.gmail.com" method="post" id="sendemail" >
-            <ol>
+            <ol >
+                
+                  <div>
+                    <div>
+                      <input type="radio" id="Business" [(ngModel)]="user.category" value="Business">
+                      <label for="Business">Business</label>
+                    
+                      <div class="reveal-if-active">
+                         
+                  
+                        <label for="business">Finance</label>
+                        <br>
+                        <mat-slider min="0" max="3" step="1" thumbLabel
+                        [displayWith]="formatLabel"
+                        tickInterval="1"
+                        id="business" name="business" class="require-if-active" data-require-pair="#Business" [(ngModel)]="user.skill" value="Finance"></mat-slider>
+                        
+                      </div>
+                    </div>
+                    
+                   
+                    
+
+                    <div>
+                      <input type="radio" id="Information Technology" [(ngModel)]="user.category" value="Information Technology"  >
+                      <label for="Information Technology">Information Technology</label>
+                    
+                      <div class="reveal-if-active">
+                        
+                        <label for="IT">Java</label>
+                        <br>
+                        <mat-slider min="0" max="3" step="1" thumbLabel
+                        [displayWith]="formatLabel"
+                        tickInterval="1"
+                        id="IT" name="IT" class="require-if-active" data-require-pair="#Information Technology" [(ngModel)]="user.skill" value="Java"></mat-slider>
+                        
+                      </div>
+                    </div>
+                    
+
+                    <div>
+                        <input type="radio" id="Engineers" [(ngModel)]="user.category" value="Engineers">
+                        <label for="Engineers">Engineers</label>
+                      
+                        <div class="reveal-if-active">
+                          
+                          <label for="Engineers">Mechanical Engineer</label>
+                          <br>
+                          <mat-slider min="0" max="3" step="1" thumbLabel
+                          [displayWith]="formatLabel"
+                          tickInterval="1"
+                          id="Engineers" name="Engineers" class="require-if-active" data-require-pair="#Engineers" [(ngModel)]="user.skill" value="Mechanical Engineer"></mat-slider>
+                          
+                        </div>
+                      </div>
+                      
+                  </div>
+                  
+                
+                      
+                
+
+
+
+
+
               <li>
-                <label for="name">Industery Sector</label>
-                <input id="name" name="name" class="text" />
+                        <ng-template #content let-modal>
+                        <div class="modal-header">
+                          <h4 class="modal-title" id="modal-basic-title">Confirmation</h4>
+                          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                            
+                            <p>Details are saved!</p>
+                        </div>
+                        <div *ngIf="auth.user | async as user" class="modal-footer">
+                          <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+                        </div>
+                      </ng-template>
+                <input type="submit" value="Save Profile" (click)="auth.updateUserData3(user)"  (click)="open(content)">
+                
               </li>
-              <li>
-                <label for="location">Skill 1</label>
-                <input id="location" name="location" class="text" />
-              </li>
-              <li>
-                <label for="jobtitle">Skill 2</label>
-                <input id="jobtitle" name="jobtitle" class="text" />
-              </li>
-              <li>
-                <label for="jobposition">Skill 3</label>
-                <textarea id="jobposition" name="jobposition" class="text" ></textarea>
-              </li>
-			  
             </ol>
-          </form>
         </div>
         <upload></upload>
       </div>
