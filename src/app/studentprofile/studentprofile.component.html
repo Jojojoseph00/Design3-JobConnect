@@ -93,9 +93,13 @@
                       <label for="Information Technology">Information Technology</label>
                     
                       <div class="reveal-if-active">
-
-                          <input type="checkbox" id="IT" name="IT" class="require-if-active" data-require-pair="#Information Technology" [(ngModel)]="user.skill" value="Java">
+                        
                         <label for="IT">Java</label>
+                        <br>
+                        <mat-slider min="0" max="3" step="1" thumbLabel
+                        [displayWith]="formatLabel"
+                        tickInterval="1"
+                        id="IT" name="IT" class="require-if-active" data-require-pair="#Information Technology" [(ngModel)]="user.skill" value="Java"></mat-slider>
                         
                       </div>
                     </div>
@@ -106,9 +110,13 @@
                         <label for="Engineers">Engineers</label>
                       
                         <div class="reveal-if-active">
-                           
-                            <input type="checkbox" id="Engineers" name="Engineers" class="require-if-active" data-require-pair="#Engineers" [(ngModel)]="user.skill" value="Mechanical Engineer"> 
+                          
                           <label for="Engineers">Mechanical Engineer</label>
+                          <br>
+                          <mat-slider min="0" max="3" step="1" thumbLabel
+                          [displayWith]="formatLabel"
+                          tickInterval="1"
+                          id="Engineers" name="Engineers" class="require-if-active" data-require-pair="#Engineers" [(ngModel)]="user.skill" value="Mechanical Engineer"></mat-slider>
                           
                         </div>
                       </div>
