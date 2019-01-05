@@ -27,7 +27,6 @@
     "express": "^4.16.4",
     "firebase": "^5.7.0",
     "font-awesome": "^4.7.0",
-    "ng-tether": "^0.1.0",
     "ng2-opd-popup": "^1.1.21",
     "popper": "^1.0.1",
     "popper.js": "^1.14.6",
