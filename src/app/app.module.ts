@@ -53,7 +53,7 @@ var firebaseConfig = {
     UploadComponent,
     FileSizePipe,
     DropZoneDirective
-    //NgbdModalBasic
+
   ],
   imports: [
     FormsModule,
@@ -79,7 +79,6 @@ var firebaseConfig = {
     AngularFireStorage,
     AngularFirestoreModule,
     UploadComponent
-    
   ],
   bootstrap: [AppComponent]
 })
