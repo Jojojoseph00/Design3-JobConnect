@@ -46,15 +46,26 @@
 				<div class="col-md-10 col-md-offset-1 text-center">
 					<ul class="hero-area-tree">
 						<li><a href="index.html">Home</a></li>
-						<li>Contact</li>
+						<li><a routerLink= '/employer'>Login Student</a></li>
 					</ul>
+
+
+					<user-profile></user-profile>
+
+
+
+
+
+
+
+					<!-- My old form -->
 					<!-- SO FAR GOT TWO LOGIN FORMS, CUZ NO SMARTNESS -->
 						<div class="login-form">
 							<h4><font color="#FFF">Login</font></h4>
-							<form action="student_index.html">
+							<form>
 								<input class="input" type="email" name="email" placeholder="Email">
 								<input class="input" type="password" name="password" placeholder="Password">
-								<button class="main-button icon-button pull-right">Login Student</button>
+								<button class="main-button icon-button pull-right"><a routerLink= '/employer'>Login Student</a></button>
 							</form><br><br>
 							<form action="employer_applications.html">
 								<!-- <input class="input" type="email" name="email" placeholder="Email">
@@ -62,6 +73,10 @@
 								<button class="main-button icon-button pull-left">Login Employer</button>
 							</form>
 						</div>
+						<!-- /End of form -->
+
+
+
 				</div>
 			</div>
 		</div>

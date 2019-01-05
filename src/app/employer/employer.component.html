@@ -1,44 +1,73 @@
 
-  <div class="main" >
-    <div class="header">
-
-        <div class="logo">
-          <span style="font-size:30px;cursor:pointer" (click)="openNav()"><img src="https://lh3.googleusercontent.com/4m6ECaWU2p21ZCpY_PEF2Z1WTDQBpj6yiWqHNjH7l_Kmq3ncL9a16g94gfVbCZ7bzJDvtswxYKwujgrKcNL1Gp3evf1MkyqO0clJ7AWumqdsll7Rf82u12lfuvZk9OVQqwKE8JPmH-uJIZqE9D14-XAtVWU-RZUNKU0jiQl_Z1lADL4AJ0Wmrtcw_eVkJMGGJrPvXtew-tXp9ipILZ69GR9NEDlypqrqgmDP4ZMDj8yoVu-MpCABP0uRV1WxQOhhhXG5Mgyuv_-OSYa9BL6lHVfvYnTX4YszesDFm_10pTwou4tAXyyUVag9l-TG5NFKJMqPimJRaUeF3hF5JaFv_-6wSp7ZwMUzvzxlE4cBozVbQVPY-8KgxoXkGfRRbNB9JyRp_zs_1ZR_ItKoBr6oX0aJwqVkFfwIXO5elcUtdpFZgZi_fg4lMr6RQxPs-19P5hXuLiP5wViSX6st5ZX6ieSrR8-tiacT5R75PVBqJhh5Sdd88rD45L0OiZH3Zc-5gkV91bivNSqm-qUmwu6ZQS5M4mfz4DqB1Ijabot2RjBHGkfwAbdaACQ_iZW6IiJF9W11DNGHwfPk_MtSZy36_8WhcKaRvkGiXHHzi7xysvBFB9zT6jv3gmZMU4cEopErxO0d09U12JbrqhLUbQ=w67-h62-no"></span>
-          <h1><a href="file:///C:/Users/user/Desktop/Project%20DT3/index.html">Job<span>Connect</span></a></h1>
-        </div>
-      <div class="header_resize">
-        
-        
-        <div class="menu_nav">
-            <ul>
-                <li class="active"><a routerLink= '/employer'>Job listing</a></li>
+                <!-- <li class="active"><a routerLink= '/employer'>Job listing</a></li>
                 <li><a routerLink= '/studentprofile'>Student Profile</a></li>
                 <li id="hide"><a routerLink= '/student'>Publish job</a></li>
-                <li><a (click)="auth.signOut()">sign out</a></li>
-            </ul>
-          </div>
-          <div class="clr"></div>
-        </div>
-      </div>
-  <div class="content">
-    <div class="content_resize">
-      <div class="hbg"><img src="./GrabJob_files/banner.png" width="970" height="200" alt=""></div>
-      <div class="mainbar">
-        <h2>Job Lists</h2>
+                <li><a (click)="auth.signOut()">sign out</a></li> -->
 
-<table>
-  <tbody><tr>
-    <th>Job Title</th> 
-    <th>Company</th>
-    <th>Location</th>
-    <th>Application</th>
+<!-- Header -->
+<header id="header">
+    <div class="container">
+
+      <div class="navbar-header">
+        <!-- Logo -->
+        <div class="navbar-brand">
+          <a class="logo" href="index.html">
+            <img src="./img/logo.png" alt="logo">
+          </a>
+        </div>
+        <!-- /Logo -->
+
+        <!-- Mobile toggle -->
+        <button class="navbar-toggle">
+          <span></span>
+        </button>
+        <!-- /Mobile toggle -->
+      </div>
+
+      <!-- Navigation -->
+      <nav id="nav">
+        <ul class="main-menu nav navbar-nav navbar-right">
+          <li><a href="student_index.html">Jobs</a></li>
+          <li><a href="student_profile.html">My Profile</a></li>
+          <li><a href="student_apps.html">My Applications</a></li>
+          <li><a href="#">Messaging</a></li>
+          <li><a style="color:#FF6700;" href="login.html"><strong>LOGOUT</strong></a></li>
+        </ul>
+      </nav>
+      <!-- /Navigation -->
+
+    </div>
+  </header>
+  <!-- /Header -->
+
+
+  <!-- Hero-area -->
+  <div class="hero-area section">
+
+			<!-- Backgound Image -->
+			<div class="bg-image bg-parallax overlay" style="background-image:url(./img/page-background.jpg)"></div>
+			<!-- /Backgound Image -->
+
+			<div class="container">
+				<div class="row">
+					<div class="col-md-10 col-md-offset-1 text-center">
+						<ul class="hero-area-tree">
+							<!-- <li><a href="index.html">Home</a></li> -->
+							<li>A personalised selection</li>
+						</ul>
+						<h1 class="white-text">Jobs for you</h1>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+    <!-- /Hero-area -->
     
-  </tr>
-  <tr *ngFor="let post of posts | async" >
-    <td>{{post.title}}</td>
-    <td>{{post.content}}</td>
-    <td>{{post.location}}</td>
-    <td><ng-template #content let-modal>
+
+
+    <!-- One stop application on this column -->
+    <!-- <td><ng-template #content let-modal>
       <div class="modal-header">
         <h4 class="modal-title" id="modal-basic-title">Confirmation</h4>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
@@ -61,27 +90,131 @@
     
     <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Apply</button>
 
-    
-    </td>    
-  </tr>    
-</tbody></table>
-  
-      </div>
-      <div id="mySidenav" class="sidenav">
-          <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
-          
-           <div class = "side_menu_header">
-           <h3>Menu</h3>
-           </div>
-           <ul>
-              <li><a routerLink= '/studentprofile'>Student Profile</a></li>
-              <li><a routerLink= '/student'>Publish job</a></li>
-              <li class="active"><a routerLink= '/employer'>Job listing</a></li>
-             </ul>
-        </div>
-      
-      <div class="clr"></div>
-    </div>
-    
-  </div>
+    </td>     -->
+    <!--/ End of one stoop apply column  -->
+
+
+
+		<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100">
+					<table>
+						<thead>
+							<tr class="table100-head" >
+								<th class="column1">Job Title</th>
+								<th class="column2">Company</th>
+								<th class="column3">Location</th>
+								<th class="column4">Application</th>
+								<!-- <th class="column5">Application</th> -->
+								<!-- <th class="column6">Total</th> -->
+							</tr>
+						</thead>
+						<tbody>
+								<tr *ngFor="let post of posts | async">
+									<td class="column1">{{post.title}}</td>
+									<td class="column2">{{post.content}}</td>
+									<td class="column3">{{post.location}}</td>
+									<td class="column4"><a href="view_more_job.html">Apply now</a></td>
+									<!-- <td class="column5"><a href="view_more_job.html">View More</a></td> -->
+									<!-- <td class="column6">$999.00</td> -->
+								</tr>
+								<tr>
+									<td class="column1">DT3 Front-end developer</td>
+									<td class="column2">James Cook University</td>
+									<td class="column3">Toronto (ON) Canada</td>
+									<td class="column4">bla</td>
+									<!-- <td class="column5"><a href="view_more_job.html">View More</a></td> -->
+								</tr>
+								
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="js/mainTable.js"></script>
+	<!-- /Table display -->
+
+
+
+
+
+
+
+	<!-- Footer -->
+	<footer id="footer" class="section">
+
+		<!-- container -->
+		<div class="container">
+
+			<!-- row -->
+			<div class="row">
+
+				<!-- footer logo -->
+				<div class="col-md-6">
+					<div class="footer-logo">
+						<a class="logo" href="index.html">
+							<img src="./img/logo.png" alt="logo">
+						</a>
+					</div>
+				</div>
+				<!-- footer logo -->
+
+				<!-- footer nav -->
+				<div class="col-md-6">
+					<ul class="footer-nav">
+						<li><a href="index.html">Home</a></li>
+						<li><a href="#">About</a></li>
+						<li><a href="#">Disclaimer</a></li>
+					</ul>
+				</div>
+				<!-- /footer nav -->
+
+			</div>
+			<!-- /row -->
+
+			<!-- row -->
+			<div id="bottom-footer" class="row">
+
+				<!-- social -->
+				<div class="col-md-4 col-md-push-8">
+					<ul class="footer-social">
+						<li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a></li>
+						<li><a href="#" class="instagram"><i class="fa fa-instagram"></i></a></li>
+						<li><a href="#" class="youtube"><i class="fa fa-youtube"></i></a></li>
+						<li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
+					</ul>
+				</div>
+				<!-- /social -->
+
+				<!-- copyright -->
+				<div class="col-md-8 col-md-pull-4">
+					<div class="footer-copyright">
+						<span>&copy; Copyright 2018. All Rights Reserved. | This template is made by <a href="https://owlprojx.com">Owl-ProjX</a></span>
+					</div>
+				</div>
+				<!-- /copyright -->
+
+			</div>
+			<!-- row -->
+
+		</div>
+		<!-- /container -->
+
+	</footer>
+	<!-- /Footer -->
   
