@@ -22,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UploadComponent } from './upload/upload.component';
 import { FileSizePipe } from './upload/file-size.pipe';
 import { DropZoneDirective } from './upload/drop-zone.directive';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 // import { UiModule } from './ui/ui.module';
 //import { NgbdModalBasic} from './employer/employer.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap'; 
@@ -58,6 +59,7 @@ var firebaseConfig = {
   ],
   imports: [
     FormsModule,
+    AngularFontAwesomeModule,
     ReactiveFormsModule,
     CoreModule,
     BrowserModule,

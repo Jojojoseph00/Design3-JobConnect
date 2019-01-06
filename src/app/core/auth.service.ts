@@ -204,7 +204,7 @@ export class AuthService {
       
       
     } else {
-      this.router.navigate(['/studentprofile']);
+      this.router.navigate(['/employer']);
     }    
 
     
