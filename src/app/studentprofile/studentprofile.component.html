@@ -80,82 +80,65 @@
               <hr>
               <textarea class="input" name="message" placeholder="Comments about yourself"></textarea>
               <upload></upload>
-              <!-- Erase this later -->
-              <textarea class="input" name="message" placeholder="Upload CV"></textarea>
-              <!-- This might be smt to do with submit button, check with John
-              <div class="clr"></div> -->
               <button class="main-button icon-button pull-right" value="Save Profile" (click)="auth.updateUserData3(user)">Save profile</button>
             </form>
           </div>
         </div>
         <div class="col-md-5 col-md-offset-1">
 					<h4>Skills</h4>
-					<div class="slidecontainer">
+					<!-- <div class="slidecontainer">
 						<select name="demo-category" id="demo-category">
 							<option value="">- Category -</option>
 							<option value="1">Business & Management</option>
 							<option value="1">Information Technology</option>
 							<option value="1">Psychology</option>
 							<option value="1">Environmental Sciences</option>
-						</select><br><br>
+            </select><br><br>
+            </div> -->
 
 						<!-- John's sliders, version youyou -->
-            <div *ngIf="auth.user | async as user">
+            <br><div *ngIf="auth.user | async as user">
             <ol >
 
               <div>
                 <div>
                   <input type="radio" id="Business" [(ngModel)]="user.category" value="Business">
-                  <label for="Business">Business</label>
-
+                  <label for="Business" class="input">.   Business</label>
                   <div class="reveal-if-active">
-
-
-                    <label for="business">Finance</label>
-                    <br>
                     <mat-slider min="0" max="3" step="1" thumbLabel
                     [displayWith]="formatLabel"
                     tickInterval="1"
                     id="business" name="business" class="require-if-active" data-require-pair="#Business" [(ngModel)]="user.skill" value="Finance" (change)="auth.updateUserData3(user)" ></mat-slider>
-
+                    <label for="business" style="font-weight: normal; float: right;">Finance</label>
                   </div>
-                </div>
-
-
+                </div><hr>
 
 
                 <div>
-                  <input type="radio" id="Information Technology" [(ngModel)]="user.category" value="Information Technology"  >
-                  <label for="Information Technology">Information Technology</label>
-
+                  <input type="radio" id="Information Technology" [(ngModel)]="user.category" value="Information Technology" class="input">
+                  <label for="Information Technology">.   Information Technology</label>
                   <div class="reveal-if-active">
-
-                    <label for="IT">Java</label>
-                    <br>
                     <mat-slider min="0" max="3" step="1" thumbLabel
                     [displayWith]="formatLabel"
                     tickInterval="1"
                     id="IT" name="IT" class="require-if-active" data-require-pair="#Information Technology" [(ngModel)]="user.skill" value="Java" (change)="auth.updateUserData3(user)"></mat-slider>
-
+                    <label for="IT" style="font-weight: normal; float: right;">Java</label>
                   </div>
-                </div>
+                </div><hr>
 
 
                 <div>
                     <input type="radio" id="Engineers" [(ngModel)]="user.category" value="Engineers">
-                    <label for="Engineers">Engineers</label>
-
+                    <label for="Engineers">.    Engineering</label>
                     <div class="reveal-if-active">
-
-                      <label for="Engineers">Mechanical Engineer</label>
-                      <br>
                       <mat-slider min="0" max="3" step="1" thumbLabel
                       [displayWith]="formatLabel"
                       tickInterval="1"
                       id="Engineers" name="Engineers" class="require-if-active" data-require-pair="#Engineers" [(ngModel)]="user.skill" value="Mechanical Engineer"(change)="auth.updateUserData3(user)" ></mat-slider>
-
+                      <label for="Engineers" style="font-weight: normal; float: right;">Mechanical Engineering</label>
                     </div>
                   </div>
+                  <hr>
               </div>
           </ol>
         </div>
