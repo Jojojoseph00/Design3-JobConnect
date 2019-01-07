@@ -83,44 +83,40 @@
               <td class="column2">{{ user.email }}</td>
               <td class="column3">{{ user.dob }}</td>
               <!-- Column 4 -->
-              <td class="column4"><ng-template #content let-modal>
-                  <div class="modal-header">
-                    <h4 class="modal-title" id="modal-basic-title">Confirmation</h4>
-                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                      <tr *ngIf="auth.user | async as user">
-                          <td>{{ user.displayName }}</td>
-                          <td>{{ user.email }}</td>
-                          <td>{{ user.dob }}</td>                              
-                        </tr> 
-                      <p>Please confirm that the details are correct and then click the confirm button to apply</p>
-                  </div>
-                  <div *ngIf="auth.user | async as user" class="modal-footer">
-                    <button type="button" class="btn btn-outline-dark" (click)="auth.jobApplication(user)">Confirm</button>
-                    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
-                  </div>
-                </ng-template>
+              <td><ng-template #content let-modal>
+                <div class="modal-header">
+                  <h4 class="modal-title" id="modal-basic-title">User Profile</h4>
+                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <li *ngIf="auth.user | async as user">
+                        <ul><h2>{{ user.displayName }}</h2></ul>
+                        <ul><img src="{{ user.photoURL }}" alt="{{ user.displayName }}"></ul>
+                        <ul><h2>{{ user.email }}</h2></ul>
+                        <ul><h2>{{ user.dob }}</h2></ul>
+                    </li>
+                    <h2>Discription</h2>
+                    <p>{{ user.info }}</p>
+                </div>
+                <div *ngIf="auth.user | async as user" class="modal-footer">
+                  <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+                </div>
+              </ng-template>
                 <!-- End of column 4 -->
                 
-                <button class="main-button pull-left" (click)="open(content)">Apply</button>
+                <button class="main-button pull-left" (click)="open(content)">View more</button>
             
                 </td>
-
-
-
-              <!-- <td class="column4"><a href="view_more_job.html">Apply now</a></td> -->
-              <!-- <td class="column5"><a href="view_more_job.html">View More</a></td> -->
-              <!-- <td class="column6">$999.00</td> -->
+             
             </tr>
+            <!-- We remove this LATER -->
             <tr>
-              <td class="column1">DT3 Front-end developer</td>
-              <td class="column2">James Cook University</td>
-              <td class="column3">Toronto (ON) Canada</td>
-              <td class="column4">bla</td>
-              <!-- <td class="column5"><a href="view_more_job.html">View More</a></td> -->
+              <td class="column1">Robert Daniel Cook</td>
+              <td class="column2">Worst student</td>
+              <td class="column3">Stockhom, Sweden</td>
+              <td class="column4">X</td>
             </tr>
             
 
@@ -184,86 +180,53 @@
       <!-- contact info form -->
       <div class="col-md-6">
         <div class="contact-form">
-          <h4>My Profile</h4>
-          <form action="www.gmail.com" method="post" id="sendemail" *ngIf="auth.user | async as user"> 
-            <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/President_Barack_Obama.jpg" alt="Girl in a jacket" width="500" height="600"> -->
-            <input [(ngModel)]="user.displayName" class="input" type="text" name="name" placeholder="Full Name (as in passport)">
-            <input type="date" [(ngModel)]="user.dob" class="input" name="dob" placeholder="dd/mm/yyyy">
-            <input class="input" type="country" name="country" placeholder="Country">
+          <h4>Job details</h4>
+          <form action="www.gmail.com" method="post" id="employeeForm"> 
+            <input [(ngModel)]="title" class="input" type="text" name="title" placeholder="Job Title">
+            <input type="text" [(ngModel)]="content" class="input" name="content" placeholder="Company">
+            <input class="input" [(ngModel)]="location" type="text" name="location" placeholder="Location">
             <hr>
+            <h4>Recruitment contact information</h4>
+            <!-- You gotta add the tags to this if u wanna store -->
+            <input class="input" type="text" name="person" placeholder="Recruiter Name">
             <input [(ngModel)]="user.email" class="input" type="email" name="email" placeholder="Email">
             <input class="input" type="tel" name="phone" placeholder="Telephone">
             <hr>
-            <textarea class="input" name="message" placeholder="Comments about yourself"></textarea>
-            <button class="main-button icon-button pull-right" value="Save Profile" (click)="auth.updateUserData3(user)">Create Job</button>
+            <!-- Old button, it is now outside the form -->
+            <!-- <button class="main-button icon-button pull-right" value="Save Profile" (click)="auth.updateUserData3(user)">Create Job</button> -->
           </form>
+          
+          <!-- Submit job button, please add an effect on the page, reload or smt -->
+          <button class="main-button icon-button pull-right" value="Add a Post" (click)="addPost()">Create Job</button>
+        
         </div>
       </div>
       <div class="col-md-5 col-md-offset-1">
-        <h4>Skills</h4>
-        <!-- <div class="slidecontainer">
-          <select name="demo-category" id="demo-category">
-            <option value="">- Category -</option>
-            <option value="1">Business & Management</option>
-            <option value="1">Information Technology</option>
-            <option value="1">Psychology</option>
-            <option value="1">Environmental Sciences</option>
-          </select><br><br>
-          </div> -->
+        <h4>Information</h4>
+          <form action="www.gmail.com" method="post" id="employeeForm"> 
+            <textarea class="input" name="message" placeholder="Job Description" style="height: 100px;"></textarea>
+            <br><br>
+            <textarea class="input" name="message" placeholder="Company Background" style="height: 100px;"></textarea>
+            <br><br>
+            <hr>
+            <h4>Additional</h4>
+            <upload></upload>
+            <hr>
 
-          <!-- John's sliders, version youyou -->
-          <br><div *ngIf="auth.user | async as user">
-          <ol >
-
-            <div>
-              <div>
-                <input type="radio" id="Business" [(ngModel)]="user.category" value="Business">
-                <label for="Business" class="input">.   Business</label>
-                <div class="reveal-if-active">
-                  <mat-slider min="0" max="3" step="1" thumbLabel
-                  [displayWith]="formatLabel"
-                  tickInterval="1"
-                  id="business" name="business" class="require-if-active" data-require-pair="#Business" [(ngModel)]="user.skill" value="Finance" (change)="auth.updateUserData3(user)" ></mat-slider>
-                  <label for="business" style="font-weight: normal; float: right;">Finance</label>
-                </div>
-              </div><hr>
-
-
-              <div>
-                <input type="radio" id="Information Technology" [(ngModel)]="user.category" value="Information Technology" class="input">
-                <label for="Information Technology">.   Information Technology</label>
-                <div class="reveal-if-active">
-                  <mat-slider min="0" max="3" step="1" thumbLabel
-                  [displayWith]="formatLabel"
-                  tickInterval="1"
-                  id="IT" name="IT" class="require-if-active" data-require-pair="#Information Technology" [(ngModel)]="user.skill" value="Java" (change)="auth.updateUserData3(user)"></mat-slider>
-                  <label for="IT" style="font-weight: normal; float: right;">Java</label>
-                </div>
-              </div><hr>
-
-
-              <div>
-                  <input type="radio" id="Engineers" [(ngModel)]="user.category" value="Engineers">
-                  <label for="Engineers">.    Engineering</label>
-                  <div class="reveal-if-active">
-                    <mat-slider min="0" max="3" step="1" thumbLabel
-                    [displayWith]="formatLabel"
-                    tickInterval="1"
-                    id="Engineers" name="Engineers" class="require-if-active" data-require-pair="#Engineers" [(ngModel)]="user.skill" value="Mechanical Engineer"(change)="auth.updateUserData3(user)" ></mat-slider>
-                    <label for="Engineers" style="font-weight: normal; float: right;">Mechanical Engineering</label>
-                  </div>
-                </div>
-                <hr>
-            </div>
-        </ol>
-      </div>
-          <!-- End of sliders -->
+            <!-- Button repeated here -->
+            <!-- <button class="main-button icon-button pull-right" value="Save Profile" (click)="auth.updateUserData3(user)">Create Job</button> -->
+          </form>
 
         </div>
         <!-- End of Skills div -->
       </div>
+      <!-- Can also have it here -->
+      <button class="main-button icon-button pull-right" value="Add a Post" (click)="addPost()" style="float: center;">Create Job</button>
+
+      
       <!-- /row -->
     </div>
+    
     <!-- /container -->
 
   </div>
