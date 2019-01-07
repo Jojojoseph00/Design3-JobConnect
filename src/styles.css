@@ -326,7 +326,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	display:block;
 	height:2px;
 	background-color:#FF6700;
-	width:110%;
+	width:100%;
   padding-top:2px;
   padding-bottom: 1px;
 	-webkit-transform: translateY(5px);
@@ -869,7 +869,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 }
 
 .contact-form textarea.input {
-	height:200px;
+	height:125px;
 }
 
 /* -- Contact Information -- */
