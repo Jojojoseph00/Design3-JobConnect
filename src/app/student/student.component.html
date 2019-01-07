@@ -22,10 +22,10 @@
     <nav id="nav">
       <ul class="main-menu nav navbar-nav navbar-right">
         <li><a routerLink='/student'>Employer dashboard</a></li>
-        <li><a href="employer_newjob.html">All graduates</a></li>
-        <li><a href="employer_listed.html">All listings</a></li>
+        <li><a href="#">All graduates</a></li>
+        <li><a href="#">All listings</a></li>
         <li><a href="#">Messaging</a></li>
-        <li><a style="color:#FF6700;" href="login.html"><strong>LOGOUT</strong></a></li>
+        <li><a style="color:#FF6700;" (click)="auth.signOut()"><strong>LOGOUT</strong></a></li>
       </ul>
     </nav>
     <!-- /Navigation -->
@@ -231,12 +231,6 @@
 
   </div>
   <!-- End of Profile -->
-
-
-
-
-
-
 
 <!-- Footer -->
 <footer id="footer" class="section">
