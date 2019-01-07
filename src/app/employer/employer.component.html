@@ -23,9 +23,9 @@
       <!-- Navigation -->
       <nav id="nav">
         <ul class="main-menu nav navbar-nav navbar-right">
-          <li><a href="student_index.html">Jobs</a></li>
-          <li><a href="student_profile.html">My Profile</a></li>
-          <li><a href="student_apps.html">My Applications</a></li>
+          <li><a routerLink='/employer'>Jobs</a></li>
+          <li><a routerLink= '/studentprofile'>My Profile</a></li>
+          <li><a href="#">My Applications</a></li>
           <li><a href="#">Messaging</a></li>
           <li><a style="color:#FF6700;" (click)="auth.signOut()"><strong>LOGOUT</strong></a></li>
         </ul>
@@ -213,4 +213,6 @@
 
 	</footer>
 	<!-- /Footer -->
+
+	<router-outlet></router-outlet>
   

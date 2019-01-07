@@ -1,3 +1,4 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 /*----------------------------------
 Template Name: JobConnect
 Author: Owl-ProjX
@@ -1670,7 +1671,7 @@ tbody tr:hover {
 
 .column1 {
   width: 260px;
-  padding-left: 40px;
+  /* padding-left: 40px; */
 }
 
 .column2 {
@@ -1683,12 +1684,12 @@ tbody tr:hover {
 
 .column4 {
   width: 90px;
-  text-align: right;
+  text-align: left;
 }
 
 .column5 {
-  width: 170px;
-  text-align: center;
+  width: 70px;
+  text-align: left;
 }
 
 

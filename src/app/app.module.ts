@@ -25,7 +25,8 @@ import { DropZoneDirective } from './upload/drop-zone.directive';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 // import { UiModule } from './ui/ui.module';
 //import { NgbdModalBasic} from './employer/employer.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap'; 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { IntroComponent } from './intro/intro.component'; 
 
 
 
@@ -54,7 +55,8 @@ var firebaseConfig = {
     UserFormComponent,
     UploadComponent,
     FileSizePipe,
-    DropZoneDirective
+    DropZoneDirective,
+    IntroComponent
 
   ],
   imports: [
@@ -71,7 +73,8 @@ var firebaseConfig = {
       {path: 'employer', component: EmployerComponent},
       {path: 'user-profile', component: UserProfileComponent},
       {path: 'student', component: StudentComponent},
-      // {path: 'jobpost', component: JobpostComponent},
+      {path: 'intro', component: IntroComponent},
+      {path: 'user-login', component: UserProfileComponent},
       {path: 'studentprofile', component: StudentprofileComponent},
       {path: 'upload', component: UploadComponent}
     ])
