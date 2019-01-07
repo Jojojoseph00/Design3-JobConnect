@@ -251,9 +251,8 @@
 
             <div *ngIf="auth.user | async as user">
                 <!-- <h3 style="color:#FFF;">{{ user.displayName }} please select your corresponding category</h3> -->
-                <br><br><br><input  type="radio" [(ngModel)] = 'user.usertype' value="employee" /><strong style="color:#FFF; font-size: 20px;"> Employer</strong><br><br>
-                <input type="radio" [(ngModel)] = 'user.usertype' value="student" /><strong style="color:#FFF; font-size: 20px;"> Student</strong><br><br><br>
-                <button (click)="auth.updateUserData3(user)" class="main-button"><strong>Save</strong></button>
+                <br><br><br><input  type="radio" [(ngModel)] = 'user.usertype' value="employee" (change)="auth.updateUserData3(user)" /><strong style="color:#FFF; font-size: 20px;"> Employer</strong><br><br>
+                <input type="radio" [(ngModel)] = 'user.usertype' value="student" (change)="auth.updateUserData3(user)" /><strong style="color:#FFF; font-size: 20px;"> Student</strong><br><br><br>
                 <button (click)="auth.redirect(user)" class="main-button" style="margin: 0px 5px;"><strong>Next</strong></button>
                 <button (click)="auth.signOut()" class="main-button"><strong>Logout</strong></button>
                 
