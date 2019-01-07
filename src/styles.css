@@ -231,8 +231,8 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 	border-color:#FF6700;
 }
 
-mat-slider {
-    width: 300px;
+/* mat-slider {
+    width: 500px;
 
   }
 
@@ -249,7 +249,7 @@ mat-slider {
       overflow: visible;
       padding: 10px 20px;
       transform: scale(1);
-    }
+    } */
 
 
 
@@ -263,7 +263,7 @@ mat-slider {
 }
 
 .navbar-brand .logo {
-	margin-top: -15px;
+	margin-top: -5px;
   margin-bottom: 0px;
 	display: inline-block;
 }
@@ -744,7 +744,7 @@ mat-slider {
 }
 
 .footer-logo  .logo > img {
-	max-height:30px;
+	max-height:100px;
 }
 
 /* -- Footer Nav -- */

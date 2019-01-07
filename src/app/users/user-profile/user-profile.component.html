@@ -18,7 +18,7 @@
 				<!-- Logo -->
 				<div class="navbar-brand">
 					<a class="logo" href="index.html">
-						<img src="./img/logoSMOL.png" alt="logo">
+						<img src="../../../assets/logoSMOL.png" alt="logo">
 					</a>
 				</div>
 				<!-- /Logo -->
@@ -50,7 +50,7 @@
 	<div class="hero-area section">
 
 		<!-- Backgound Image -->
-		<div class="bg-image bg-parallax overlay" style="background-image:url(https://i.ibb.co/QFVhN2N/home-background.jpg)"></div>
+		<div class="bg-image bg-parallax overlay" style="background-image:url(../../../assets/home-background.jpg)"></div>
 		<!-- /Backgound Image -->
 
 		<div class="container">
@@ -112,7 +112,7 @@
 				<div class="col-md-6">
 					<div class="footer-logo">
 						<a class="logo" href="index.html">
-							<img src="./img/logo.png" alt="logo">
+							<img src="../../../assets/logo.png" alt="logo">
 						</a>
 					</div>
 				</div>
@@ -199,7 +199,7 @@
 				<!-- Logo -->
 				<div class="navbar-brand">
 					<a class="logo" href="index.html">
-						<img src="./img/logoSMOL.png" alt="logo">
+						<img src="../../../assets/logoSMOL.png" alt="logo">
 					</a>
 				</div>
 				<!-- /Logo -->
@@ -231,7 +231,7 @@
 	<div class="hero-area section">
 
 		<!-- Backgound Image -->
-		<div class="bg-image bg-parallax overlay" style="background-image:url(https://i.ibb.co/QFVhN2N/home-background.jpg)"></div>
+		<div class="bg-image bg-parallax overlay" style="background-image:url(../../../assets/home-background.jpg)"></div>
 		<!-- /Backgound Image -->
 
 		<div class="container">
@@ -245,12 +245,12 @@
   <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
 					<div class="login-form">
-						<h4><font color="#FFF">Login</font></h4>
+						<h4><font color="#FFF">please select your corresponding category</font></h4>
             <!-- <user-profile></user-profile> -->
             
 
             <div *ngIf="auth.user | async as user">
-                <h3 style="color:#FFF;">{{ user.displayName }} please select your corresponding category</h3>
+                <!-- <h3 style="color:#FFF;">{{ user.displayName }} please select your corresponding category</h3> -->
                 <br><br><br><input  type="radio" [(ngModel)] = 'user.usertype' value="employee" /><strong style="color:#FFF; font-size: 20px;"> Employer</strong><br><br>
                 <input type="radio" [(ngModel)] = 'user.usertype' value="student" /><strong style="color:#FFF; font-size: 20px;"> Student</strong><br><br><br>
                 <button (click)="auth.updateUserData3(user)" class="main-button"><strong>Save</strong></button>
@@ -303,7 +303,7 @@
 				<div class="col-md-6">
 					<div class="footer-logo">
 						<a class="logo" href="index.html">
-							<img src="./img/logo.png" alt="logo">
+							<img src="../../../assets/logo.png" alt="logo">
 						</a>
 					</div>
 				</div>
@@ -312,7 +312,7 @@
 				<!-- footer nav -->
 				<div class="col-md-6">
 					<ul class="footer-nav">
-						<li><a href="index.html">Home</a></li>
+						<li><a href="#">Home</a></li>
 						<li><a href="#">About</a></li>
 						<li><a href="#">Disclaimer</a></li>
 					</ul>

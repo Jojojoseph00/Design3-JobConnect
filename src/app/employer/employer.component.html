@@ -8,7 +8,7 @@
         <!-- Logo -->
         <div class="navbar-brand">
           <a class="logo" href="index.html">
-            <img src="./img/logo.png" alt="logo">
+            <img src="../../assets/logo.png" alt="logo">
           </a>
         </div>
         <!-- /Logo -->
@@ -41,7 +41,7 @@
   <div class="hero-area section">
 
 			<!-- Backgound Image -->
-			<div class="bg-image bg-parallax overlay" style="background-image:url(./img/page-background.jpg)"></div>
+			<div class="bg-image bg-parallax overlay" style="background-image:url(../../assets/page-background.jpg)"></div>
 			<!-- /Backgound Image -->
 
 			<div class="container">
@@ -63,33 +63,62 @@
 
 
     <!-- One stop application on this column -->
-    <!-- <td><ng-template #content let-modal>
-      <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Confirmation</h4>
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-          <tr *ngIf="auth.user | async as user">
-              <td>{{ user.displayName }}</td>
-              <td>{{ user.email }}</td>
-              <td>{{ user.dob }}</td>                              
-            </tr> 
-          <p>Please confirm that the details are correct and then click the confirm button to apply</p>
-      </div>
-      <div *ngIf="auth.user | async as user" class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="auth.jobApplication(user)">Confirm</button>
-        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
-      </div>
-    </ng-template>
-    
-    <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Apply</button>
-
-    </td>     -->
+        
     <!--/ End of one stoop apply column  -->
 
 
+
+		<hr>
+		<table>
+				<tbody><tr>
+					<th>Job Title</th> 
+					<th>Company</th>
+					<th>Location</th>
+					<th>Application</th>
+					
+				</tr>
+				<tr *ngFor="let post of posts | async" >
+					<td>{{post.title}}</td>
+					<td>{{post.content}}</td>
+					<td>{{post.location}}</td>
+					<td>
+						<ng-template #content let-modal>
+						<div class="modal-header">
+							<h4 class="modal-title" id="modal-basic-title">Confirmation</h4>
+							<button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+								<tr *ngIf="auth.user | async as user">
+										<td>{{ user.displayName }}</td>
+										<td>{{ user.email }}</td>
+										<td>{{ user.dob }}</td>                              
+									</tr> 
+								<p>Please confirm that the details are correct and then click the confirm button to apply</p>
+						</div>
+						<div *ngIf="auth.user | async as user" class="modal-footer">
+							<button type="button" class="btn btn-outline-dark" (click)="auth.jobApplication(user)"(click)="modal.close('Save click')">Confirm</button>
+							<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+						</div>
+					</ng-template>
+					
+					<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Apply</button>
+			
+					
+					</td>    
+				</tr>    
+			</tbody></table><br><br>
+			<hr>
+
+
+
+
+
+
+
+
+			
 
 		<div class="limiter">
 		<div class="container-table100">
@@ -111,7 +140,36 @@
 									<td class="column1">{{post.title}}</td>
 									<td class="column2">{{post.content}}</td>
 									<td class="column3">{{post.location}}</td>
-									<td class="column4"><a href="view_more_job.html">Apply now</a></td>
+									<!-- Column 4 -->
+									<td class="column4"><ng-template #content let-modal>
+											<div class="modal-header">
+												<h4 class="modal-title" id="modal-basic-title">Confirmation</h4>
+												<button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+													<span aria-hidden="true">&times;</span>
+												</button>
+											</div>
+											<div class="modal-body">
+													<tr *ngIf="auth.user | async as user">
+															<td>{{ user.displayName }}</td>
+															<td>{{ user.email }}</td>
+															<td>{{ user.dob }}</td>                              
+														</tr> 
+													<p>Please confirm that the details are correct and then click the confirm button to apply</p>
+											</div>
+											<div *ngIf="auth.user | async as user" class="modal-footer">
+												<button type="button" class="btn btn-outline-dark" (click)="auth.jobApplication(user)">Confirm</button>
+												<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+											</div>
+										</ng-template>
+										<!-- End of column 4 -->
+										
+										<button class="main-button pull-left" (click)="open(content)">Apply</button>
+								
+										</td>
+
+
+
+									<!-- <td class="column4"><a href="view_more_job.html">Apply now</a></td> -->
 									<!-- <td class="column5"><a href="view_more_job.html">View More</a></td> -->
 									<!-- <td class="column6">$999.00</td> -->
 								</tr>
@@ -162,7 +220,7 @@
 				<div class="col-md-6">
 					<div class="footer-logo">
 						<a class="logo" href="index.html">
-							<img src="./img/logo.png" alt="logo">
+							<img src="../../assets/logo.png" alt="logo">
 						</a>
 					</div>
 				</div>

@@ -26,7 +26,12 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 // import { UiModule } from './ui/ui.module';
 //import { NgbdModalBasic} from './employer/employer.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { IntroComponent } from './intro/intro.component'; 
+// import { IntroComponent } from './intro/intro.component';
+// import { EmployerApplicantsComponent } from './employer-applicants/employer-applicants.component';
+// import { EmployerHeadhuntComponent } from './employer-headhunt/employer-headhunt.component'; 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatSliderModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 
 
 
@@ -55,9 +60,7 @@ var firebaseConfig = {
     UserFormComponent,
     UploadComponent,
     FileSizePipe,
-    DropZoneDirective,
-    IntroComponent
-
+    DropZoneDirective
   ],
   imports: [
     FormsModule,
@@ -68,12 +71,15 @@ var firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     NgbModule.forRoot(),
+    MatButtonModule, 
+    MatCheckboxModule,
+    MatSliderModule,
     RouterModule.forRoot([
       {path: 'employer', component: EmployerComponent},
       {path: 'user-profile', component: UserProfileComponent},
       {path: 'student', component: StudentComponent},
-      {path: 'intro', component: IntroComponent},
       {path: 'user-login', component: UserProfileComponent},
       {path: 'studentprofile', component: StudentprofileComponent},
       {path: 'upload', component: UploadComponent}
