@@ -197,7 +197,7 @@ blockquote:before{
 
 
 /* --  Input  -- */
-input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="date"], input[type="url"], input[type="tel"], textarea {
+input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="url"], textarea {
     height: 40px;
     width: 100%;
     border: 2px solid #EBEBEB;
@@ -209,6 +209,19 @@ input[type="text"], input[type="email"], input[type="password"], input[type="num
 	transition:0.2s border-color;
 }
 
+input[type="country"], input[type="tel"], input[type="date"] {
+  height: 40px;
+  width: 100%;
+  border: 2px solid #EBEBEB;
+  border-radius:4px;
+  background: transparent;
+  padding-left: 15px;
+  padding-right: 15px;
+  -webkit-transition:0.2s border-color;
+  transition:0.2s border-color;
+  width: 50%;
+}
+
 textarea {
     padding: 10px 15px;
 }
@@ -216,6 +229,26 @@ textarea {
 input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="number"]:focus, input[type="date"]:focus, input[type="url"]:focus, input[type="tel"]:focus, textarea:focus {
 	border-color:#FF6700;
 }
+
+mat-slider {
+    width: 300px;
+
+  }
+
+.reveal-if-active {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transform: scale(0.8);
+    transition: 0.5s;}
+    input[type="radio"]:checked ~ .reveal-if-active,
+    input[type="checkbox"]:checked ~ .reveal-if-active {
+      opacity: 1;
+      max-height: 100px;
+      overflow: visible;
+      padding: 10px 20px;
+      transform: scale(1);
+    }
 
 
 

@@ -1,108 +1,252 @@
-<div class="main">
-  <div class="header">
-  
-    <div class="logo">
-			<span style="font-size:30px;cursor:pointer" (click)="openNav()"><img src="https://lh3.googleusercontent.com/4m6ECaWU2p21ZCpY_PEF2Z1WTDQBpj6yiWqHNjH7l_Kmq3ncL9a16g94gfVbCZ7bzJDvtswxYKwujgrKcNL1Gp3evf1MkyqO0clJ7AWumqdsll7Rf82u12lfuvZk9OVQqwKE8JPmH-uJIZqE9D14-XAtVWU-RZUNKU0jiQl_Z1lADL4AJ0Wmrtcw_eVkJMGGJrPvXtew-tXp9ipILZ69GR9NEDlypqrqgmDP4ZMDj8yoVu-MpCABP0uRV1WxQOhhhXG5Mgyuv_-OSYa9BL6lHVfvYnTX4YszesDFm_10pTwou4tAXyyUVag9l-TG5NFKJMqPimJRaUeF3hF5JaFv_-6wSp7ZwMUzvzxlE4cBozVbQVPY-8KgxoXkGfRRbNB9JyRp_zs_1ZR_ItKoBr6oX0aJwqVkFfwIXO5elcUtdpFZgZi_fg4lMr6RQxPs-19P5hXuLiP5wViSX6st5ZX6ieSrR8-tiacT5R75PVBqJhh5Sdd88rD45L0OiZH3Zc-5gkV91bivNSqm-qUmwu6ZQS5M4mfz4DqB1Ijabot2RjBHGkfwAbdaACQ_iZW6IiJF9W11DNGHwfPk_MtSZy36_8WhcKaRvkGiXHHzi7xysvBFB9zT6jv3gmZMU4cEopErxO0d09U12JbrqhLUbQ=w67-h62-no"></span>
-			<h1><a href="file:///C:/Users/user/Desktop/Project%20DT3/index.html">Job<span>Connect</span></a></h1>
-		</div>
-	<div class="header_resize">
-		
-		
-		<div class="menu_nav">
-        <ul>
-            <li><a routerLink= '/employer'>Job listing</a></li>
-            <li class="active"><a routerLink= '/studentprofile'>Student Profile</a></li>
-            <li><a routerLink= '/student'>Publish job</a></li>
-            <li><a (click)="auth.signOut()">sign out</a></li>
+<!-- Header -->
+<header id="header">
+  <div class="container">
+
+    <div class="navbar-header">
+      <!-- Logo -->
+      <div class="navbar-brand">
+        <a class="logo" href="index.html">
+          <img src="./img/logo.png" alt="logo">
+        </a>
+      </div>
+      <!-- /Logo -->
+
+      <!-- Mobile toggle -->
+      <button class="navbar-toggle">
+        <span></span>
+      </button>
+      <!-- /Mobile toggle -->
+    </div>
+
+    <!-- Navigation -->
+    <nav id="nav">
+      <ul class="main-menu nav navbar-nav navbar-right">
+        <li><a href="student_index.html">Jobs</a></li>
+        <li><a href="student_profile.html">My Profile</a></li>
+        <li><a href="student_apps.html">My Applications</a></li>
+        <li><a href="#">Messaging</a></li>
+        <li><a style="color:#FF6700;" (click)="auth.signOut()"><strong>LOGOUT</strong></a></li>
+      </ul>
+    </nav>
+    <!-- /Navigation -->
+
+  </div>
+</header>
+<!-- /Header -->
+
+<!-- Hero-area -->
+<div class="hero-area section">
+
+  <!-- Backgound Image -->
+  <div class="bg-image bg-parallax overlay" style="background-image:url(./img/page-background.jpg)"></div>
+  <!-- /Backgound Image -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1 text-center">
+        <ul class="hero-area-tree">
+          <li>Set your</li>
+        </ul>
+        <h1 class="white-text">Profile</h1>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- /Hero-area -->
+
+<!-- Profile -->
+<div id="contact" class="section">
+
+  <!-- container -->
+  <div class="container">
+
+    <!-- row -->
+    <div class="row">
+
+      <!-- contact info form -->
+      <div class="col-md-6">
+        <div class="contact-form">
+          <h4>My Profile</h4>
+          <form action="www.gmail.com" method="post" id="sendemail" *ngIf="auth.user | async as user"> 
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/President_Barack_Obama.jpg" alt="Girl in a jacket" width="500" height="600">
+            <input [(ngModel)]="user.displayName" class="input" type="text" name="name" placeholder="Full Name (as in passport)">
+            <input type="date" [(ngModel)]="user.dob" class="input" name="dob" placeholder="dd/mm/yyyy">
+            <input class="input" type="country" name="country" placeholder="Country">
+            <hr>
+            <input [(ngModel)]="user.email" class="input" type="email" name="email" placeholder="Email">
+            <input class="input" type="tel" name="phone" placeholder="Telephone">
+            <hr>
+            <textarea class="input" name="message" placeholder="Comments about yourself"></textarea>
+            <upload></upload>
+            <!-- Erase this later -->
+            <textarea class="input" name="message" placeholder="Upload CV"></textarea>
+            <!-- This might be smt to do with submit button, check with John
+            <div class="clr"></div> -->
+            <button class="main-button icon-button pull-right" value="Save Profile" (click)="auth.updateUserData3(user)">Save profile</button>
+          </form>
+        </div>
+      </div>
+      <!-- /contact info form -->
+
+
+
+      <!-- Skills -->
+      <div class="col-md-5 col-md-offset-1">
+        <h4>Skills</h4>
+        <div class="slidecontainer">
+          <select name="demo-category" id="demo-category">
+            <option value="">- Category -</option>
+            <option value="1">Business & Management</option>
+            <option value="1">Information Technology</option>
+            <option value="1">Psychology</option>
+            <option value="1">Environmental Sciences</option>
+          </select><br><br>
+
+          <!-- John's sliders, version youyou -->
+          <ol >
+                  
+              <div>
+                <!-- Business -->
+                <div>
+                  <input type="radio" id="Business" [(ngModel)]="user.category" value="Business">
+                  <label for="Business">Business</label>
+                  <div class="reveal-if-active">
+                    <label for="business">Finance</label>
+                    <br>
+                    <mat-slider min="0" max="3" step="1" thumbLabel
+                    [displayWith]="formatLabel"
+                    tickInterval="1"
+                    id="business" name="business" class="require-if-active" data-require-pair="#Business" [(ngModel)]="user.skill" value="Finance"></mat-slider>
+                  </div>
+                </div>
+
+                <!-- Info Tech -->
+                <div>
+                  <input type="radio" id="Information Technology" [(ngModel)]="user.category" value="Information Technology"  >
+                  <label for="Information Technology">Information Technology</label>
+                  <div class="reveal-if-active">
+                    <label for="IT">Java</label>
+                    <br>
+                    <mat-slider min="0" max="3" step="1" thumbLabel
+                    [displayWith]="formatLabel"
+                    tickInterval="1"
+                    id="IT" name="IT" class="require-if-active" data-require-pair="#Information Technology" [(ngModel)]="user.skill" value="Java"></mat-slider>
+                  </div>
+                </div>
+
+                <!-- Engineering -->
+                <div>
+                    <input type="radio" id="Engineers" [(ngModel)]="user.category" value="Engineers">
+                    <label for="Engineers">Engineers</label>
+                    <div class="reveal-if-active">
+                      <label for="Engineers">Mechanical Engineer</label>
+                      <br>
+                      <mat-slider min="0" max="3" step="1" thumbLabel
+                      [displayWith]="formatLabel"
+                      tickInterval="1"
+                      id="Engineers" name="Engineers" class="require-if-active" data-require-pair="#Engineers" [(ngModel)]="user.skill" value="Mechanical Engineer"></mat-slider>
+                    </div>
+                  </div>
+                  
+              </div>
+              <!-- End of this skill radio div -->
+              
+          <!-- Invisible popup for details are saved     -->
+          <li>
+                    <ng-template #content let-modal>
+                    <div class="modal-header">
+                      <h4 class="modal-title" id="modal-basic-title">Confirmation</h4>
+                      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Details are saved!</p>
+                    </div>
+                    <div *ngIf="auth.user | async as user" class="modal-footer">
+                      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+                    </div>
+                  </ng-template>
+            <input type="submit" value="Save Profile" (click)="auth.updateUserData3(user)"  (click)="open(content)">
+          </li>
+          <!-- End of popup -->
+        </ol>
+        <!-- End of sliders -->
+
+      </div>
+      <!-- End of Skills div -->
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- /container -->
+
+</div>
+<!-- End of Profile -->
+
+
+<!-- Footer -->
+<footer id="footer" class="section">
+
+  <!-- container -->
+  <div class="container">
+
+    <!-- row -->
+    <div class="row">
+
+      <!-- footer logo -->
+      <div class="col-md-6">
+        <div class="footer-logo">
+          <a class="logo" href="index.html">
+            <img src="./img/logo.png" alt="logo">
+          </a>
+        </div>
+      </div>
+      <!-- footer logo -->
+
+      <!-- footer nav -->
+      <div class="col-md-6">
+        <ul class="footer-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Disclaimer</a></li>
         </ul>
       </div>
-      <div class="clr"></div>
+      <!-- /footer nav -->
+
     </div>
-  </div>
-  <div class="content">   
-          
-    
-    <div class="content_resize">
+    <!-- /row -->
 
-      <div class="mainbar">
-        <div class="article">
-          <div class="modal-body">
-              <li *ngIf="auth.user | async as user">
-                  <ul><h2>{{ user.displayName }}</h2></ul>
-                  <ul><img src="{{ user.photoURL }}" alt="{{ user.displayName }}"></ul>           
-              </li> 
-          </div>
-          <div class="clr"></div>
-          <form action="www.gmail.com" method="post" id="sendemail" *ngIf="auth.user | async as user">
-            <ol>
-              <li>
-                <label for="name">Full name: (required)</label>
-                <input type="text" [(ngModel)]="user.displayName" name="Name" placeholder="Enter full Name.."/>
-              </li>
-              <li>
-                <label for="jobtitle">Date of Birth: (required)</label>
-                <input type="date" [(ngModel)]="user.dob" name="dob" placeholder="Date of Birth.."/>
-              </li>
-              <li>
-                  <label for="jobposition">Email:</label>
-                  <input type="text" [(ngModel)]="user.email" name="email" placeholder="Add information.."/>
-                </li>
-              <li>
-                <label for="jobposition">Add information</label>
-                <input type="text" [(ngModel)]="user.info" name="info" placeholder="Add information.."/>
-              </li>
+    <!-- row -->
+    <div id="bottom-footer" class="row">
 
-              <li>
-                  <input type="submit" value="Save Profile" (click)="auth.updateUserData3(user)">
-                  <div class="clr"></div>
-                </li>
-			  
-            </ol>
-          </form>
+      <!-- social -->
+      <div class="col-md-4 col-md-push-8">
+        <ul class="footer-social">
+          <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a></li>
+          <li><a href="#" class="instagram"><i class="fa fa-instagram"></i></a></li>
+          <li><a href="#" class="youtube"><i class="fa fa-youtube"></i></a></li>
+          <li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+      </div>
+      <!-- /social -->
+
+      <!-- copyright -->
+      <div class="col-md-8 col-md-pull-4">
+        <div class="footer-copyright">
+          <span>&copy; Copyright 2018. All Rights Reserved. | This template is made by <a href="https://owlprojx.com">Owl-ProjX</a></span>
         </div>
       </div>
-	  <div class="mainbar2">
-        <div class="article">
-          <h2><span>Technical</span> Profile</h2>
-          <div class="clr"></div>
-          <form action="www.gmail.com" method="post" id="sendemail" >
-            <ol>
-              <li>
-                <label for="name">Industery Sector</label>
-                <input id="name" name="name" class="text" />
-              </li>
-              <li>
-                <label for="location">Skill 1</label>
-                <input id="location" name="location" class="text" />
-              </li>
-              <li>
-                <label for="jobtitle">Skill 2</label>
-                <input id="jobtitle" name="jobtitle" class="text" />
-              </li>
-              <li>
-                <label for="jobposition">Skill 3</label>
-                <textarea id="jobposition" name="jobposition" class="text" ></textarea>
-              </li>
-			  
-            </ol>
-          </form>
-        </div>
-        <upload></upload>
-      </div>
-      
-	<div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
-  
-	 <div class = "side_menu_header">
-	 <h3>Menu</h3>
-	 </div>
-	 <ul>
-	<li><a routerLink= '/studentprofile'>Student Profile</a></li>
-	<li><a routerLink= '/student'>Publish job</a></li>
-	<li class="active"><a routerLink= '/employer'>Job listing</a></li>
-     </ul>
-</div>
-      <div class="clr"></div>
+      <!-- /copyright -->
+
     </div>
+    <!-- row -->
+
   </div>
-</div>
+  <!-- /container -->
+
+</footer>
+<!-- /Footer -->
