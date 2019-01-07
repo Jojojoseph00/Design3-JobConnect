@@ -6,7 +6,7 @@
         <!-- Logo -->
         <div class="navbar-brand">
           <a class="logo" href="index.html">
-            <img src="./img/logo.png" alt="logo">
+            <img src="../../assets/logo.png" alt="logo">
           </a>
         </div>
         <!-- /Logo -->
@@ -38,7 +38,7 @@
   <div class="hero-area section">
   
     <!-- Backgound Image -->
-    <div class="bg-image bg-parallax overlay" style="background-image:url(./img/page-background.jpg)"></div>
+    <div class="bg-image bg-parallax overlay" style="background-image:url(../../assets/page-background.jpg)"></div>
     <!-- /Backgound Image -->
   
     <div class="container">
@@ -88,75 +88,155 @@
             </form>
           </div>
         </div>
-        <!-- /contact info form -->
+        <div class="col-md-5 col-md-offset-1">
+					<h4>Skills</h4>
+					<div class="slidecontainer">
+						<select name="demo-category" id="demo-category">
+							<option value="">- Category -</option>
+							<option value="1">Business & Management</option>
+							<option value="1">Information Technology</option>
+							<option value="1">Psychology</option>
+							<option value="1">Environmental Sciences</option>
+						</select><br><br>
+
+						<!-- John's sliders, version youyou -->
+            <div *ngIf="auth.user | async as user">
+            <ol >
+
+              <div>
+                <div>
+                  <input type="radio" id="Business" [(ngModel)]="user.category" value="Business">
+                  <label for="Business">Business</label>
+
+                  <div class="reveal-if-active">
+
+
+                    <label for="business">Finance</label>
+                    <br>
+                    <mat-slider min="0" max="3" step="1" thumbLabel
+                    [displayWith]="formatLabel"
+                    tickInterval="1"
+                    id="business" name="business" class="require-if-active" data-require-pair="#Business" [(ngModel)]="user.skill" value="Finance" (change)="auth.updateUserData3(user)" ></mat-slider>
+
+                  </div>
+                </div>
+
+
+
+
+                <div>
+                  <input type="radio" id="Information Technology" [(ngModel)]="user.category" value="Information Technology"  >
+                  <label for="Information Technology">Information Technology</label>
+
+                  <div class="reveal-if-active">
+
+                    <label for="IT">Java</label>
+                    <br>
+                    <mat-slider min="0" max="3" step="1" thumbLabel
+                    [displayWith]="formatLabel"
+                    tickInterval="1"
+                    id="IT" name="IT" class="require-if-active" data-require-pair="#Information Technology" [(ngModel)]="user.skill" value="Java" (change)="auth.updateUserData3(user)"></mat-slider>
+
+                  </div>
+                </div>
+
+
+                <div>
+                    <input type="radio" id="Engineers" [(ngModel)]="user.category" value="Engineers">
+                    <label for="Engineers">Engineers</label>
+
+                    <div class="reveal-if-active">
+
+                      <label for="Engineers">Mechanical Engineer</label>
+                      <br>
+                      <mat-slider min="0" max="3" step="1" thumbLabel
+                      [displayWith]="formatLabel"
+                      tickInterval="1"
+                      id="Engineers" name="Engineers" class="require-if-active" data-require-pair="#Engineers" [(ngModel)]="user.skill" value="Mechanical Engineer"(change)="auth.updateUserData3(user)" ></mat-slider>
+
+                    </div>
+                  </div>
+              </div>
+          </ol>
         </div>
-        </div>
-        </div>
-        
-        <div class="mainbar2">
-            <div class="article" *ngIf="auth.user | async as user">
-              <h2><span>Technical</span> Profile</h2>
-              <div class="clr"></div>
-                <ol >
-                    
-                      <div>
-                        <div>
-                          <input type="radio" id="Business" [(ngModel)]="user.category" value="Business">
-                          <label for="Business">Business</label>
-                        
-                          <div class="reveal-if-active">
-                             
-                      
-                            <label for="business">Finance</label>
-                            <br>
-                            <mat-slider min="0" max="3" step="1" thumbLabel
-                            [displayWith]="formatLabel"
-                            tickInterval="1"
-                            id="business" name="business" class="require-if-active" data-require-pair="#Business" [(ngModel)]="user.skill" value="Finance" (change)="auth.updateUserData3(user)" ></mat-slider>
-                            
-                          </div>
-                        </div>
-                        
-                       
-                        
-    
-                        <div>
-                          <input type="radio" id="Information Technology" [(ngModel)]="user.category" value="Information Technology"  >
-                          <label for="Information Technology">Information Technology</label>
-                        
-                          <div class="reveal-if-active">
-                            
-                            <label for="IT">Java</label>
-                            <br>
-                            <mat-slider min="0" max="3" step="1" thumbLabel
-                            [displayWith]="formatLabel"
-                            tickInterval="1"
-                            id="IT" name="IT" class="require-if-active" data-require-pair="#Information Technology" [(ngModel)]="user.skill" value="Java" (change)="auth.updateUserData3(user)"></mat-slider>
-                            
-                          </div>
-                        </div>
-                        
-    
-                        <div>
-                            <input type="radio" id="Engineers" [(ngModel)]="user.category" value="Engineers">
-                            <label for="Engineers">Engineers</label>
-                          
-                            <div class="reveal-if-active">
-                              
-                              <label for="Engineers">Mechanical Engineer</label>
-                              <br>
-                              <mat-slider min="0" max="3" step="1" thumbLabel
-                              [displayWith]="formatLabel"
-                              tickInterval="1"
-                              id="Engineers" name="Engineers" class="require-if-active" data-require-pair="#Engineers" [(ngModel)]="user.skill" value="Mechanical Engineer"(change)="auth.updateUserData3(user)" ></mat-slider>
-                              
-                            </div>
-                          </div>
-                      </div>
-                </ol>
-            </div>
-            <upload></upload>
-          </div>
+						<!-- End of sliders -->
+
+					</div>
+					<!-- End of Skills div -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+
+		</div>
+		<!-- End of Profile -->
+
+
+
+          <!-- Footer -->
+	<footer id="footer" class="section">
+
+		<!-- container -->
+		<div class="container">
+
+			<!-- row -->
+			<div class="row">
+
+				<!-- footer logo -->
+				<div class="col-md-6">
+					<div class="footer-logo">
+						<a class="logo" href="index.html">
+							<img src="../../assets/logo.png" alt="logo">
+						</a>
+					</div>
+				</div>
+				<!-- footer logo -->
+
+				<!-- footer nav -->
+				<div class="col-md-6">
+					<ul class="footer-nav">
+						<li><a href="index.html">Home</a></li>
+						<li><a href="#">About</a></li>
+						<li><a href="#">Disclaimer</a></li>
+					</ul>
+				</div>
+				<!-- /footer nav -->
+
+			</div>
+			<!-- /row -->
+
+			<!-- row -->
+			<div id="bottom-footer" class="row">
+
+				<!-- social -->
+				<div class="col-md-4 col-md-push-8">
+					<ul class="footer-social">
+						<li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a></li>
+						<li><a href="#" class="instagram"><i class="fa fa-instagram"></i></a></li>
+						<li><a href="#" class="youtube"><i class="fa fa-youtube"></i></a></li>
+						<li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
+					</ul>
+				</div>
+				<!-- /social -->
+
+				<!-- copyright -->
+				<div class="col-md-8 col-md-pull-4">
+					<div class="footer-copyright">
+						<span>&copy; Copyright 2018. All Rights Reserved. | This template is made by <a href="https://owlprojx.com">Owl-ProjX</a></span>
+					</div>
+				</div>
+				<!-- /copyright -->
+
+			</div>
+			<!-- row -->
+
+		</div>
+		<!-- /container -->
+
+	</footer>
+	<!-- /Footer -->
   
   
   
