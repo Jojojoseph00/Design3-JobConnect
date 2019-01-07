@@ -68,66 +68,62 @@
     <div class="table100">
       <table>
         <thead>
-          <tr class="table100-head">
-            <th class="column1">Student name</th>
-            <th class="column2">Qualification</th>
-            <!-- <th class="column5">Profile</th> -->
-            <th class="column3">Location</th>
-            <th class="column4">Match Score</th>
-            <th class="column5">Profile</th>
+          <tr class="table100-head" >
+            <th class="column1">Applicant Name</th>
+            <th class="column2">Email</th>
+            <th class="column3">Date of birth</th>
+            <th class="column4">Profile</th>
+            <!-- <th class="column5">Application</th> -->
             <!-- <th class="column6">Total</th> -->
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td class="column1">Robert Daniel Cook</td>
-            <td class="column2">Worst student</td>
-            <td class="column3">Stockhom, Sweden</td>
-            <td class="column4">100%</td>
-            <td class="column5"><a href="view_more_profile.html">View profile</a></td>
-          </tr>
-            <tr>
-              <td class="column1">Robert Daniel Cook</td>
-              <td class="column2">Worst student</td>
-              <td class="column3">Stockhom, Sweden</td>
-              <td class="column4">100%</td>
-              <td class="column5"><a href="view_more_profile.html">View profile</a></td>
+            <tr *ngIf="auth.user | async as user">
+              <td class="column1">{{ user.displayName }}</td>
+              <td class="column2">{{ user.email }}</td>
+              <td class="column3">{{ user.dob }}</td>
+              <!-- Column 4 -->
+              <td class="column4"><ng-template #content let-modal>
+                  <div class="modal-header">
+                    <h4 class="modal-title" id="modal-basic-title">Confirmation</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                      <tr *ngIf="auth.user | async as user">
+                          <td>{{ user.displayName }}</td>
+                          <td>{{ user.email }}</td>
+                          <td>{{ user.dob }}</td>                              
+                        </tr> 
+                      <p>Please confirm that the details are correct and then click the confirm button to apply</p>
+                  </div>
+                  <div *ngIf="auth.user | async as user" class="modal-footer">
+                    <button type="button" class="btn btn-outline-dark" (click)="auth.jobApplication(user)">Confirm</button>
+                    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+                  </div>
+                </ng-template>
+                <!-- End of column 4 -->
+                
+                <button class="main-button pull-left" (click)="open(content)">Apply</button>
+            
+                </td>
+
+
+
+              <!-- <td class="column4"><a href="view_more_job.html">Apply now</a></td> -->
+              <!-- <td class="column5"><a href="view_more_job.html">View More</a></td> -->
+              <!-- <td class="column6">$999.00</td> -->
             </tr>
             <tr>
-              <td class="column1">Robert Daniel Cook</td>
-              <td class="column2">Worst student</td>
-              <td class="column3">Stockhom, Sweden</td>
-              <td class="column4">100%</td>
-              <td class="column5"><a href="view_more_profile.html">View profile</a></td>
+              <td class="column1">DT3 Front-end developer</td>
+              <td class="column2">James Cook University</td>
+              <td class="column3">Toronto (ON) Canada</td>
+              <td class="column4">bla</td>
+              <!-- <td class="column5"><a href="view_more_job.html">View More</a></td> -->
             </tr>
-            <tr>
-              <td class="column1">Robert Daniel Cook</td>
-              <td class="column2">Worst student</td>
-              <td class="column3">Stockhom, Sweden</td>
-              <td class="column4">100%</td>
-              <td class="column5"><a href="view_more_profile.html">View profile</a></td>
-            </tr>
-            <tr>
-              <td class="column1">Robert Daniel Cook</td>
-              <td class="column2">Worst student</td>
-              <td class="column3">Stockhom, Sweden</td>
-              <td class="column4">100%</td>
-              <td class="column5"><a href="view_more_profile.html">View profile</a></td>
-            </tr>
-            <tr>
-              <td class="column1">Robert Daniel Cook</td>
-              <td class="column2">Worst student</td>
-              <td class="column3">Stockhom, Sweden</td>
-              <td class="column4">100%</td>
-              <td class="column5"><a href="view_more_profile.html">View profile</a></td>
-            </tr>
-            <tr>
-              <td class="column1">Robert Daniel Cook</td>
-              <td class="column2">Worst student</td>
-              <td class="column3">Stockhom, Sweden</td>
-              <td class="column4">100%</td>
-              <td class="column5"><a href="view_more_profile.html">View profile</a></td>
-            </tr>
+            
+
         </tbody>
       </table>
     </div>
