@@ -88,30 +88,43 @@
 									<td class="column2">{{post.content}}</td>
 									<td class="column3">{{post.location}}</td>
 									<!-- Column 4 -->
-									<td class="column4"><ng-template #content let-modal>
-											<div class="modal-header">
-												<h4 class="modal-title" id="modal-basic-title">Confirmation</h4>
-												<button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-													<span aria-hidden="true">&times;</span>
-												</button>
-											</div>
-											<div class="modal-body">
-													<tr *ngIf="auth.user | async as user">
-															<td>{{ user.displayName }}</td>
-															<td>{{ user.email }}</td>
-															<td>{{ user.dob }}</td>                              
-														</tr> 
-													<p>Please confirm that the details are correct and then click the confirm button to apply</p>
-											</div>
-											<div *ngIf="auth.user | async as user" class="modal-footer">
-												<button type="button" class="btn btn-outline-dark" (click)="auth.jobApplication(user)">Confirm</button>
-												<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
-											</div>
-										</ng-template>
-										<!-- End of column 4 -->
+									<td class="column4">
 										
-										<button class="main-button pull-left" (click)="open(content)">Apply</button>
-								
+										
+											<div class="bs-example">
+													<!-- Button HTML (to Trigger Modal) -->
+													<a href="#myModal" class="main-button pull-left" data-toggle="modal">Apply</a>
+													
+													<!-- Modal HTML -->
+													<div id="myModal" class="modal fade">
+														<div class="modal-dialog">
+															<div class="modal-content">
+																<div class="modal-header">
+																	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+																	<h4 class="modal-title">Confirmation</h4>
+																</div>
+																<div class="modal-body">
+																		<tr *ngIf="auth.user | async as user">
+																			<h4>Name: {{ user.displayName }}</h4>
+																			<h4>Email: {{ user.email }}</h4>
+																			<h4>Date of Birth: {{ user.dob }}</h4>                          
+																			 
+																		<p>Please confirm that the details are correct and then click the confirm button to apply</p>
+																	</tr>
+																</div>
+																<div  *ngIf="auth.user | async as user" class="modal-footer">
+																	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+																	<button type="button" class="btn btn-primary"  data-dismiss="modal" (click)="auth.jobApplication(user)">Confirm</button>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>     
+										
+										
+										
+										
+										
 										</td>
 
 
@@ -150,7 +163,8 @@
 
 
 
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
 

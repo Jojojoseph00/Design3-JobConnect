@@ -1768,6 +1768,20 @@ tbody tr:hover {
   }
 }
 
+/* Popup Content */
+.namebox {
+	text-align: left;
+
+}
+
+.emailbox {
+	text-align: middle;
+}
+
+.dobbox {
+	text-align: right;
+
+}
 
 
 
