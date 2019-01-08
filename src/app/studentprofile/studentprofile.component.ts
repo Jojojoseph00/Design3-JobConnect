@@ -18,10 +18,16 @@ interface ProfileId extends Profile {
   id: string; 
 }
 @Component({
-  selector: 'app-ticks-values-slider',
+  selector: 'app-studentprofile',
   templateUrl: './studentprofile.component.html'
 })
-export class TicksValuesSliderComponent {
+
+@Component({
+  selector: 'app-studentprofile',
+  templateUrl: './studentprofile.component.html',
+  styleUrls: ['./studentprofile.component.css']
+})
+export class StudentprofileComponent implements OnInit {
   value: number = 5;
   options: Options = {
     floor: 0,
@@ -30,17 +36,8 @@ export class TicksValuesSliderComponent {
     showTicks: true,
     showTicksValues: true
   };
-}
-@Component({
-  selector: 'app-studentprofile',
-  templateUrl: './studentprofile.component.html',
-  styleUrls: ['./studentprofile.component.css']
-})
-export class StudentprofileComponent implements OnInit {
-
   profilesCol: AngularFirestoreCollection<Profile>;
   profiles: any;
-
   fname: string;
   lname: string;
   dob: Date;
