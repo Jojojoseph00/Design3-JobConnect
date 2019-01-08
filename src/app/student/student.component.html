@@ -83,33 +83,59 @@
               <td class="column2">{{ user.email }}</td>
               <td class="column3">{{ user.dob }}</td>
               <!-- Column 4 -->
-              <td><ng-template #content let-modal>
-                <div class="modal-header">
-                  <h4 class="modal-title" id="modal-basic-title">User Profile</h4>
-                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                    <li *ngIf="auth.user | async as user">
-                        <ul><h2>{{ user.displayName }}</h2></ul>
-                        <ul><img src="{{ user.photoURL }}" alt="{{ user.displayName }}"></ul>
-                        <ul><h2>{{ user.email }}</h2></ul>
-                        <ul><h2>{{ user.dob }}</h2></ul>
-                    </li>
-                    <h2>Discription</h2>
-                    <p>{{ user.info }}</p>
-                </div>
-                <div *ngIf="auth.user | async as user" class="modal-footer">
-                  <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
-                </div>
-              </ng-template>
+
+              
+              <td>
+
+
+                  <div class="bs-example">
+                      <!-- Button HTML (to Trigger Modal) -->
+                      <a href="#myModal" class="main-button pull-left" data-toggle="modal">View More</a>
+                      
+                      <!-- Modal HTML -->
+                      <div id="myModal" class="modal fade">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              
+                              <h4 class="modal-title">Details</h4>
+                            </div>
+                            <div class="modal-body">
+                                <li *ngIf="auth.user | async as user">
+                                    <ul><h2>{{ user.displayName }}</h2></ul>
+                                    <ul><img src="{{ user.photoURL }}" alt="{{ user.displayName }}"></ul>
+                                    <ul><h2>{{ user.email }}</h2></ul>
+                                    <ul><h2>{{ user.dob }}</h2></ul>
+                                </li>
+                                <h2>Discription</h2>
+                                <p>{{ user.info }}</p>
+                            </div>
+                            <div  *ngIf="auth.user | async as user" class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>     
+                
+                
+                
+
+                
+               
+      
                 <!-- End of column 4 -->
                 
-                <button class="main-button pull-left" (click)="open(content)">View more</button>
+               
             
                 </td>
              
+
+
+
+
+
             </tr>
             <!-- We remove this LATER -->
             <tr>
@@ -147,7 +173,8 @@
 <script src="js/mainTable.js"></script>
 <!-- /Table display -->
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
 
