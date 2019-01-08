@@ -93,38 +93,35 @@
 										
 											<div class="bs-example">
 													<!-- Button HTML (to Trigger Modal) -->
-													<a href="#myModal" class="main-button pull-left" data-toggle="modal">Apply</a>
+													<a href="#myModal" class="main-button pull-left" data-toggle="modal">View More</a>
 													
 													<!-- Modal HTML -->
 													<div id="myModal" class="modal fade">
-														<div class="modal-dialog">
-															<div class="modal-content">
-																<div class="modal-header">
-																	
-																	<h4 class="modal-title">Confirmation</h4>
-																</div>
-																<div class="modal-body">
-																		<tr *ngIf="auth.user | async as user">
-																			<h4>Name: {{ user.displayName }}</h4>
-																			<h4>Email: {{ user.email }}</h4>
-																			<h4>Date of Birth: {{ user.dob }}</h4>                          
-																			 
-																		<p>Please confirm that the details are correct and then click the confirm button to apply</p>
-																	</tr>
-																</div>
-																<div  *ngIf="auth.user | async as user" class="modal-footer">
-																	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-																	<button type="button" class="btn btn-primary"  data-dismiss="modal" (click)="auth.jobApplication(user)">Confirm</button>
-																</div>
-															</div>
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															
+															<h4 class="modal-title">Details</h4>
+														  </div>
+														  <div class="modal-body">
+															  <li *ngIf="auth.user | async as user">
+																  <ul><h2>{{ user.displayName }}</h2></ul>
+																  <ul><img src="{{ user.photoURL }}" alt="{{ user.displayName }}"></ul>
+																  <ul><h2>{{ user.email }}</h2></ul>
+																  <ul><h2>{{ user.dob }}</h2></ul>
+															  </li>
+															  <h2>Discription</h2>
+															  <p>{{ user.info }}</p>
+														  </div>
+														  <div  *ngIf="auth.user | async as user" class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+													
+														  </div>
 														</div>
+													  </div>
 													</div>
-												</div>     
-										
-										
-										
-										
-										
+												  </div>     
+											  
 										</td>
 
 

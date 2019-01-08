@@ -85,7 +85,7 @@
               <!-- Column 4 -->
 
               
-              <td>
+              <td class="column4">
 
 
                   <div class="bs-example">
@@ -107,10 +107,10 @@
                                     <ul><h2>{{ user.email }}</h2></ul>
                                     <ul><h2>{{ user.dob }}</h2></ul>
                                 </li>
-                                <h2>Discription</h2>
+                                <h2>Description</h2>
                                 <p>{{ user.info }}</p>
                             </div>
-                            <div  *ngIf="auth.user | async as user" class="modal-footer">
+                            <div  class="modal-footer">
                               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                       
                             </div>
@@ -173,7 +173,7 @@
 <script src="js/mainTable.js"></script>
 <!-- /Table display -->
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
