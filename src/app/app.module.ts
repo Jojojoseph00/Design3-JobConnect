@@ -77,8 +77,9 @@ var firebaseConfig = {
     MatCheckboxModule,
     MatSliderModule,
     RouterModule.forRoot([
+      {path: '', redirectTo: 'user-profile', pathMatch: 'full'},
       {path: 'employer', component: EmployerComponent},
-      {path: 'user-profile', component: UserProfileComponent},
+      {path: 'user-profile', component: UserProfileComponent,},
       {path: 'student', component: StudentComponent},
       {path: 'user-login', component: UserProfileComponent},
       {path: 'studentprofile', component: StudentprofileComponent},
