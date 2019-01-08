@@ -72,7 +72,7 @@
             <form action="www.gmail.com" method="post" id="sendemail" *ngIf="auth.user | async as user"> 
               <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/President_Barack_Obama.jpg" alt="Girl in a jacket" width="500" height="600"> -->
               <input [(ngModel)]="user.displayName" class="input" type="text" name="name" placeholder="Full Name (as in passport)">
-              <input type="date" [(ngModel)]="user.dob" class="input" name="dob" placeholder="dd/mm/yyyy">
+              <input type="date" [(ngModel)]="user.dob" class="input" name="dob" placeholder="dd/mm/yyyy"><br>
               <input class="input" type="country" name="country" placeholder="Country">
               <hr>
               <input [(ngModel)]="user.email" class="input" type="email" name="email" placeholder="Email">

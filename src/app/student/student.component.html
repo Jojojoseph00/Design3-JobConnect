@@ -78,12 +78,12 @@
           </tr>
         </thead>
         <tbody>
-            <!-- <tr *ngIf="auth.user | async as user">
+            <tr *ngIf="auth.user | async as user">
               <td class="column1">{{ user.displayName }}</td>
               <td class="column2">{{ user.email }}</td>
-              <td class="column3">{{ user.dob }}</td> -->
+              <td class="column3">{{ user.dob }}</td> 
               <!-- Column 4 -->
-              <!-- <td><ng-template #content let-modal>
+              <td><ng-template #content let-modal>
                 <div class="modal-header">
                   <h4 class="modal-title" id="modal-basic-title">User Profile</h4>
                   <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
@@ -103,14 +103,14 @@
                 <div *ngIf="auth.user | async as user" class="modal-footer">
                   <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
                 </div>
-              </ng-template> -->
+              </ng-template>
                 <!-- End of column 4 -->
                 
-                <!-- <button class="main-button pull-left" (click)="open(content)">View more</button>
+                <button class="main-button pull-left" (click)="open(content)">View more</button>
             
                 </td>
              
-            </tr> -->
+            </tr>
             <!-- We remove this LATER -->
             <tr>
               <td class="column1">Robert Daniel Cook</td>
@@ -166,7 +166,7 @@
           <!-- <li><a href="index.html">Home</a></li> -->
           <li>List new employment opportunity</li>
         </ul>
-        <h1 class="white-text">Job listing</h1>
+        <h1 class="white-text">Job Posting</h1>
 
       </div>
     </div>
@@ -229,7 +229,7 @@
         <!-- End of Skills div -->
       </div>
       <!-- Can also have it here -->
-      <button class="main-button icon-button pull-right" value="Add a Post" (click)="addPost()" style="float: center;">Create Job</button>
+      <!-- <button class="main-button icon-button pull-right" value="Add a Post" (click)="addPost()" style="float: center;">Create Job</button> -->
 
       
       <!-- /row -->
