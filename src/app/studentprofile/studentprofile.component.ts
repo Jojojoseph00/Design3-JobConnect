@@ -97,9 +97,3 @@ rangeValue: any;
   }
 
 }
-
-
-
-
-
-
