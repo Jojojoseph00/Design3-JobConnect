@@ -33,10 +33,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatSliderModule} from '@angular/material';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 
-
-
-
-
 var firebaseConfig = {
   apiKey: "AIzaSyBVuSFduxGn2LTVSJcm06wwkabdNR8W8_k",
   authDomain: "firestore-637f9.firebaseapp.com",
@@ -46,7 +42,10 @@ var firebaseConfig = {
 
 };
 
+
+
 @NgModule({
+
   declarations: [
    
     AppComponent,
@@ -85,7 +84,6 @@ var firebaseConfig = {
       {path: 'studentprofile', component: StudentprofileComponent},
       {path: 'upload', component: UploadComponent}
     ])
-    
   ],
   providers: [
     AuthService,
