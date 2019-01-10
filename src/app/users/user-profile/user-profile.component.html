@@ -5,27 +5,379 @@
 
 <!-- User NOT logged in -->
 <ng-template #guest>
-<div class="login-card">
-<h3>Howdy, GUEST</h3>
-<p>Login to get started...</p>
-<user-form></user-form>
-<button class="loginBtn loginBtn--google" (click)="auth.googleLogin()">
-    Login with Google
-</button>
 
-</div>  
+
+
+  <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+  <!-- Header -->
+<header id="header" class="transparent-nav">
+		<div class="container">
+
+			<div class="navbar-header">
+				<!-- Logo -->
+				<div class="navbar-brand">
+					<a class="logo" href="index.html">
+						<img src="../../../assets/logoSMOL.png" alt="logo">
+					</a>
+				</div>
+				<!-- /Logo -->
+
+				<!-- Mobile toggle -->
+				<button class="navbar-toggle">
+					<span></span>
+				</button>
+				<!-- /Mobile toggle -->
+			</div>
+
+			<!-- Navigation -->
+			<nav id="nav">
+				<ul class="main-menu nav navbar-nav navbar-right">
+					<!-- <li><a href="index.html">Home</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Statistics</a></li>
+					<li><a href="#">Blog</a></li>
+					<li><a href="#">Contact</a></li> -->
+		<li><a style="color:#FF6700;"><strong>LOGIN</strong></a></li>
+				</ul>
+			</nav>
+			<!-- /Navigation -->
+
+		</div>
+	</header>
+	<!-- /Header -->
+
+	<div class="hero-area section">
+
+		<!-- Backgound Image -->
+		<div class="bg-image bg-parallax overlay" style="background-image:url(../../../assets/home-background.jpg)"></div>
+		<!-- /Backgound Image -->
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1 text-center">
+					<!-- <ul class="hero-area-tree">
+						<li><a href="index.html">Home</a></li>
+						<li><a routerLink= '/employer'>Login Student</a></li>
+					</ul> -->
+
+  <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+					<div class="login-form">
+						<h4><font color="#FFF">Login</font></h4>
+            <!-- <user-profile></user-profile> -->
+            <user-form></user-form>
+					</div>
+
+
+
+
+
+					<!-- My old form -->
+					<!-- SO FAR GOT TWO LOGIN FORMS, CUZ NO SMARTNESS -->
+						<!-- <div class="login-form">
+							<h4><font color="#FFF">Login</font></h4>
+							<form>
+								<input class="input" type="email" name="email" placeholder="Email">
+								<input class="input" type="password" name="password" placeholder="Password">
+								<button class="main-button icon-button pull-right"><a routerLink= '/employer'>Login Student</a></button>
+							</form><br><br>
+							<form action="employer_applications.html"> -->
+								<!-- <input class="input" type="email" name="email" placeholder="Email">
+								<input class="input" type="password" name="password" placeholder="Password"> -->
+								<!-- <button class="main-button icon-button pull-left">Login Employer</button>
+							</form>
+						</div> -->
+						<!-- /End of form -->
+
+
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<!-- /Login -->
+
+	<!-- Footer -->
+	<footer id="footer" class="section">
+
+		<!-- container -->
+		<div class="container">
+
+			<!-- row -->
+			<div class="row">
+
+				<!-- footer logo -->
+				<div class="col-md-6">
+					<div class="footer-logo">
+						<a class="logo" href="index.html">
+							<img src="../../../assets/logo.png" alt="logo">
+						</a>
+					</div>
+				</div>
+				<!-- footer logo -->
+
+				<!-- footer nav -->
+				<div class="col-md-6">
+					<ul class="footer-nav">
+						<li><a href="index.html">Home</a></li>
+						<li><a href="#">About</a></li>
+						<li><a href="#">Disclaimer</a></li>
+					</ul>
+				</div>
+				<!-- /footer nav -->
+
+			</div>
+			<!-- /row -->
+
+			<!-- row -->
+			<div id="bottom-footer" class="row">
+
+				<!-- social -->
+				<div class="col-md-4 col-md-push-8">
+					<ul class="footer-social">
+						<li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a></li>
+						<li><a href="#" class="instagram"><i class="fa fa-instagram"></i></a></li>
+						<li><a href="#" class="youtube"><i class="fa fa-youtube"></i></a></li>
+						<li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
+					</ul>
+				</div>
+				<!-- /social -->
+
+				<!-- copyright -->
+				<div class="col-md-8 col-md-pull-4">
+					<div class="footer-copyright">
+						<span>&copy; Copyright 2018. All Rights Reserved. | This template is made by <a href="https://owlprojx.com">Owl-ProjX</a></span>
+					</div>
+				</div>
+				<!-- /copyright -->
+
+			</div>
+			<!-- row -->
+
+		</div>
+		<!-- /container -->
+
+	</footer>
+	<!-- /Footer -->
+
+	<!-- preloader -->
+	<!-- <div id='preloader'><div class='preloader'></div></div> -->
+	<!-- /preloader -->
+
+
+	<!-- jQuery Plugins -->
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+
+  <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
+
+<!-- <user-form></user-form> -->
+
+
+
 </ng-template>
 
 
 <!-- User logged in -->
 <ng-template #authenticated>
-<div *ngIf="auth.user | async as user">
-  <h3>Howdy, {{ user.displayName }} please chose if you are an employee or student.</h3>
-  <input type="radio" [(ngModel)] = 'user.usertype' value="employee"/>employee<br>
-  <input type="radio" [(ngModel)] = 'user.usertype' value="student"/>student<br>
-  <button (click)="auth.updateUserData3(user)">Save</button>
-  <button (click)="auth.redirect(user)">Next</button>
-  
-  <button (click)="auth.signOut()">Logout</button>
-</div>
+
+  <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+  <!-- Header -->
+<header id="header" class="transparent-nav">
+		<div class="container">
+
+			<div class="navbar-header">
+				<!-- Logo -->
+				<div class="navbar-brand">
+					<a class="logo" href="index.html">
+						<img src="../../../assets/logoSMOL.png" alt="logo">
+					</a>
+				</div>
+				<!-- /Logo -->
+
+				<!-- Mobile toggle -->
+				<button class="navbar-toggle">
+					<span></span>
+				</button>
+				<!-- /Mobile toggle -->
+			</div>
+
+			<!-- Navigation -->
+			<nav id="nav">
+				<ul class="main-menu nav navbar-nav navbar-right">
+					<!-- <li><a href="index.html">Home</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Statistics</a></li>
+					<li><a href="#">Blog</a></li>
+					<li><a href="#">Contact</a></li> -->
+		<li><a style="color:#FF6700;"><strong>LOGIN</strong></a></li>
+				</ul>
+			</nav>
+			<!-- /Navigation -->
+
+		</div>
+	</header>
+	<!-- /Header -->
+
+	<div class="hero-area section">
+
+		<!-- Backgound Image -->
+		<div class="bg-image bg-parallax overlay" style="background-image:url(../../../assets/home-background.jpg)"></div>
+		<!-- /Backgound Image -->
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1 text-center">
+					<!-- <ul class="hero-area-tree">
+						<li><a href="index.html">Home</a></li>
+						<li><a routerLink= '/employer'>Login Student</a></li>
+					</ul> -->
+
+  <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+					<div class="login-form">
+						<h4><font color="#FFF">please select your corresponding category</font></h4>
+            <!-- <user-profile></user-profile> -->
+            
+
+            <div *ngIf="auth.user | async as user">
+                <!-- <h3 style="color:#FFF;">{{ user.displayName }} please select your corresponding category</h3> -->
+                <br><br><br><input  type="radio" [(ngModel)] = 'user.usertype' value="employee" (change)="auth.updateUserData3(user)" /><strong style="color:#FFF; font-size: 20px;"> Employer</strong><br><br>
+                <input type="radio" [(ngModel)] = 'user.usertype' value="student" (change)="auth.updateUserData3(user)" /><strong style="color:#FFF; font-size: 20px;"> Student</strong><br><br><br>
+                <button (click)="auth.redirect(user)" class="main-button" style="margin: 0px 5px;"><strong>Next</strong></button>
+                <button (click)="auth.signOut()" class="main-button"><strong>Logout</strong></button>
+                
+              </div>
+					</div>
+
+
+
+
+
+					<!-- My old form -->
+					<!-- SO FAR GOT TWO LOGIN FORMS, CUZ NO SMARTNESS -->
+						<!-- <div class="login-form">
+							<h4><font color="#FFF">Login</font></h4>
+							<form>
+								<input class="input" type="email" name="email" placeholder="Email">
+								<input class="input" type="password" name="password" placeholder="Password">
+								<button class="main-button icon-button pull-right"><a routerLink= '/employer'>Login Student</a></button>
+							</form><br><br>
+							<form action="employer_applications.html"> -->
+								<!-- <input class="input" type="email" name="email" placeholder="Email">
+								<input class="input" type="password" name="password" placeholder="Password"> -->
+								<!-- <button class="main-button icon-button pull-left">Login Employer</button>
+							</form>
+						</div> -->
+						<!-- /End of form -->
+
+
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<!-- /Login -->
+
+	<!-- Footer -->
+	<footer id="footer" class="section">
+
+		<!-- container -->
+		<div class="container">
+
+			<!-- row -->
+			<div class="row">
+
+				<!-- footer logo -->
+				<div class="col-md-6">
+					<div class="footer-logo">
+						<a class="logo" href="index.html">
+							<img src="../../../assets/logo.png" alt="logo">
+						</a>
+					</div>
+				</div>
+				<!-- footer logo -->
+
+				<!-- footer nav -->
+				<div class="col-md-6">
+					<ul class="footer-nav">
+						<li><a href="#">Home</a></li>
+						<li><a href="#">About</a></li>
+						<li><a href="#">Disclaimer</a></li>
+					</ul>
+				</div>
+				<!-- /footer nav -->
+
+			</div>
+			<!-- /row -->
+
+			<!-- row -->
+			<div id="bottom-footer" class="row">
+
+				<!-- social -->
+				<div class="col-md-4 col-md-push-8">
+					<ul class="footer-social">
+						<li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a></li>
+						<li><a href="#" class="instagram"><i class="fa fa-instagram"></i></a></li>
+						<li><a href="#" class="youtube"><i class="fa fa-youtube"></i></a></li>
+						<li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
+					</ul>
+				</div>
+				<!-- /social -->
+
+				<!-- copyright -->
+				<div class="col-md-8 col-md-pull-4">
+					<div class="footer-copyright">
+						<span>&copy; Copyright 2018. All Rights Reserved. | This template is made by <a href="https://owlprojx.com">Owl-ProjX</a></span>
+					</div>
+				</div>
+				<!-- /copyright -->
+
+			</div>
+			<!-- row -->
+
+		</div>
+		<!-- /container -->
+
+	</footer>
+	<!-- /Footer -->
+
+	<!-- preloader -->
+	<!-- <div id='preloader'><div class='preloader'></div></div> -->
+	<!-- /preloader -->
+
+
+	<!-- jQuery Plugins -->
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+
+  <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
 </ng-template>
+
+
+
+
+
+
+
+
+
+
+
+

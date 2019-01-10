@@ -1,12 +1,7 @@
-.modal-body img {
-    
-    width: 10%;
-}
-
 mat-slider {
-    width: 300px;
-    
-  }  
+    width: 400px;
+
+  }
 
 .reveal-if-active {
     opacity: 0;
@@ -22,13 +17,3 @@ mat-slider {
       padding: 10px 20px;
       transform: scale(1);
     }
-  
-
-
-
-
-   
-
-  
-  
-  

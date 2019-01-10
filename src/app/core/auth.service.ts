@@ -19,11 +19,11 @@ interface User {
   favoriteColor?: string;
   usertype: string;
   dob: string;
-  info: string;
-  category: string;
+  info: string;  
   skill: string;
-  
-
+  category: string;
+  phone: String;
+  country: String;
 }
 
 /*interface User2 {
@@ -138,10 +138,10 @@ export class AuthService {
       usertype: '',
       dob: '',
       info: '',
-      category: '',
-      skill: ''
-      
-
+      skill:'',
+      category:'',
+      phone: '',
+      country: ''
     }
 
     return userRef.set(data, { merge: true })
@@ -161,9 +161,10 @@ export class AuthService {
       usertype: user.usertype,
       dob: user.dob,
       info: user.info,
+      skill: user.skill,
       category: user.category,
-      skill: user.skill
-      
+      phone: user.phone,
+      country: user.country
     }
 
     return userRef.set(data, { merge: true })
@@ -212,7 +213,7 @@ export class AuthService {
       
       
     } else {
-      this.router.navigate(['/studentprofile']);
+      this.router.navigate(['/employer']);
     }    
 
     
@@ -231,9 +232,10 @@ export class AuthService {
       usertype: user.usertype,
       dob: user.dob,
       info: user.info,
+      skill: user.skill,
       category: user.category,
-      skill: user.skill
-
+      phone: user.phone,
+      country: user.country
     }
 
     return userRef2.set(data, { merge: true }) 

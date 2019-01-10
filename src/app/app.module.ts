@@ -19,26 +19,19 @@ import { UserProfileComponent } from './users/user-profile/user-profile.componen
 import { LoginFormComponent } from './users/login-form/login-form.component';
 import { UserFormComponent } from './users/user-form/user-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { UploadComponent } from './upload/upload.component';
 import { FileSizePipe } from './upload/file-size.pipe';
 import { DropZoneDirective } from './upload/drop-zone.directive';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+// import { UiModule } from './ui/ui.module';
 //import { NgbdModalBasic} from './employer/employer.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+// import { IntroComponent } from './intro/intro.component';
+// import { EmployerApplicantsComponent } from './employer-applicants/employer-applicants.component';
+// import { EmployerHeadhuntComponent } from './employer-headhunt/employer-headhunt.component'; 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatSliderModule} from '@angular/material';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
-
-
-
-
-
-
-
-
-
-
-
-
 
 var firebaseConfig = {
   apiKey: "AIzaSyBVuSFduxGn2LTVSJcm06wwkabdNR8W8_k",
@@ -66,37 +59,37 @@ var firebaseConfig = {
     UserFormComponent,
     UploadComponent,
     FileSizePipe,
-    DropZoneDirective,
-    //NgbdModalBasic
-   
+    DropZoneDirective
   ],
   imports: [
     FormsModule,
+    AngularFontAwesomeModule,
     ReactiveFormsModule,
     CoreModule,
     BrowserModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     NgbModule.forRoot(),
+    MatButtonModule, 
+    MatCheckboxModule,
+    MatSliderModule,
     RouterModule.forRoot([
+      {path: '', redirectTo: 'user-profile', pathMatch: 'full'},
       {path: 'employer', component: EmployerComponent},
-      {path: 'user-profile', component: UserProfileComponent},
+      {path: 'user-profile', component: UserProfileComponent,},
       {path: 'student', component: StudentComponent},
-      // {path: 'jobpost', component: JobpostComponent},
+      {path: 'user-login', component: UserProfileComponent},
       {path: 'studentprofile', component: StudentprofileComponent},
       {path: 'upload', component: UploadComponent}
-    ]),
-    BrowserAnimationsModule,
-    MatSliderModule,
-    MatButtonModule, MatCheckboxModule
+    ])
   ],
   providers: [
     AuthService,
     AngularFireStorage,
     AngularFirestoreModule,
     UploadComponent
-    
   ],
   bootstrap: [AppComponent]
 })
