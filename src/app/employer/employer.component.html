@@ -1,5 +1,3 @@
-
-
 <!-- Header -->
 <header id="header">
     <div class="container">
@@ -40,24 +38,24 @@
   <!-- Hero-area -->
   <div class="hero-area section">
 
-			<!-- Backgound Image -->
-			<div class="bg-image bg-parallax overlay" style="background-image:url(../../assets/page-background.jpg)"></div>
-			<!-- /Backgound Image -->
+   <!-- Backgound Image -->
+   <div class="bg-image bg-parallax overlay" style="background-image:url(../../assets/page-background.jpg)"></div>
+   <!-- /Backgound Image -->
 
-			<div class="container">
-				<div class="row">
-					<div class="col-md-10 col-md-offset-1 text-center">
-						<ul class="hero-area-tree">
-							<!-- <li><a href="index.html">Home</a></li> -->
-							<li>A personalised selection</li>
-						</ul>
-						<h1 class="white-text">Jobs for you</h1>
+   <div class="container">
+    <div class="row">
+     <div class="col-md-10 col-md-offset-1 text-center">
+      <ul class="hero-area-tree">
+       <!-- <li><a href="index.html">Home</a></li> -->
+       <li>A personalised selection</li>
+      </ul>
+      <h1 class="white-text">Jobs for you</h1>
 
-					</div>
-				</div>
-			</div>
+     </div>
+    </div>
+   </div>
 
-		</div>
+  </div>
     <!-- /Hero-area -->
     
 
@@ -67,168 +65,173 @@
     <!--/ End of one stoop apply column  -->
 
 
-		<div class="limiter">
-		<div class="container-table100">
-			<div class="wrap-table100">
-				<div class="table100">
-					<table>
-						<thead>
-							<tr class="table100-head" >
-								<th class="column1">Job Title</th>
-								<th class="column2">Company</th>
-								<th class="column3">Location</th>
-								<th class="column4">Application</th>
-								<!-- <th class="column5">Application</th> -->
-								<!-- <th class="column6">Total</th> -->
-							</tr>
-						</thead>
-						<tbody>
-								<tr *ngFor="let post of posts | async">
-									<td class="column1">{{post.title}}</td>
-									<td class="column2">{{post.content}}</td>
-									<td class="column3">{{post.location}}</td>
-									<!-- Column 4 -->
-									<td class="column4">
-										
-										
-											<div class="bs-example">
-													<!-- Button HTML (to Trigger Modal) -->
-													<a href="#myModal" class="main-button pull-left" data-toggle="modal">View More</a>
-													
-													<!-- Modal HTML -->
-													<div id="myModal" class="modal fade">
-													  <div class="modal-dialog">
-														<div class="modal-content">
-														  <div class="modal-header">
-															
-															<h4 class="modal-title">Details</h4>
-														  </div>
-														  <div class="modal-body">
-															  <li *ngIf="auth.user | async as user">
-																  <ul><h2>{{ user.displayName }}</h2></ul>
-																  <ul><img src="{{ user.photoURL }}" alt="{{ user.displayName }}"></ul>
-																  <ul><h2>{{ user.email }}</h2></ul>
-																  <ul><h2>{{ user.dob }}</h2></ul>
-															  </li>
-															  <h2>Discription</h2>
-															  <p>{{ user.info }}</p>
-														  </div>
-														  <div  *ngIf="auth.user | async as user" class="modal-footer">
-															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-													
-														  </div>
-														</div>
-													  </div>
-													</div>
-												  </div>     
-											  
-										</td>
+  <div class="limiter">
+  <div class="container-table100">
+   <div class="wrap-table100">
+    <div class="table100">
+     <table>
+      <thead>
+       <tr class="table100-head" >
+        <th class="column1">Job Title</th>
+        <th class="column2">Company</th>
+        <th class="column3">Location</th>
+        <th class="column4">Application</th>
+        <!-- <th class="column5">Application</th> -->
+        <!-- <th class="column6">Total</th> -->
+       </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let post of posts | async">
+         <td class="column1">{{post.title}}</td>
+         <td class="column2">{{post.content}}</td>
+         <td class="column3">{{post.location}}</td>
+         <!-- Column 4 -->
+         <td class="column4">
+          
+          
+           <div class="bs-example">
+             <!-- Button HTML (to Trigger Modal) -->
+             <a href="#myModal" class="main-button pull-left" data-toggle="modal">Apply</a>
+             
+             <!-- Modal HTML -->
+             <div id="myModal" class="modal fade">
+              <div class="modal-dialog">
+               <div class="modal-content">
+                <div class="modal-header">
+                 
+                 <h4 class="modal-title">Confirmation</h4>
+                </div>
+                <div class="modal-body">
+                  <tr *ngIf="auth.user | async as user">
+                   <h4>Name: {{ user.displayName }}</h4>
+                   <h4>Email: {{ user.email }}</h4>
+                   <h4>Date of Birth: {{ user.dob }}</h4>                          
+                    
+                  <p>Please confirm that the details are correct and then click the confirm button to apply</p>
+                 </tr>
+                </div>
+                <div  *ngIf="auth.user | async as user" class="modal-footer">
+                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                 <button type="button" class="btn btn-primary"  data-dismiss="modal" (click)="auth.jobApplication(user)">Confirm</button>
+                </div>
+               </div>
+              </div>
+             </div>
+            </div>     
+          
+          
+          
+          
+          
+          </td>
 
 
 
-									<!-- <td class="column4"><a href="view_more_job.html">Apply now</a></td> -->
-									<!-- <td class="column5"><a href="view_more_job.html">View More</a></td> -->
-									<!-- <td class="column6">$999.00</td> -->
-								</tr>
-								<!-- <tr>
-									<td class="column1">DT3 Front-end developer</td>
-									<td class="column2">James Cook University</td>
-									<td class="column3">Toronto (ON) Canada</td>
-									<td class="column4">bla</td> -->
-									<!-- <td class="column5"><a href="view_more_job.html">View More</a></td> -->
-								<!-- </tr> -->
-								
+         <!-- <td class="column4"><a href="view_more_job.html">Apply now</a></td> -->
+         <!-- <td class="column5"><a href="view_more_job
 
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div>
-	</div>
+Johnny The T-Rex, [10.01.19 14:40]
+.html">View More</a></td> -->
+         <!-- <td class="column6">$999.00</td> -->
+        </tr>
+        <!-- <tr>
+         <td class="column1">DT3 Front-end developer</td>
+         <td class="column2">James Cook University</td>
+         <td class="column3">Toronto (ON) Canada</td>
+         <td class="column4">bla</td> -->
+         <!-- <td class="column5"><a href="view_more_job.html">View More</a></td> -->
+        <!-- </tr> -->
+        
+
+      </tbody>
+     </table>
+    </div>
+   </div>
+  </div>
+ </div>
 
 
 <!--===============================================================================================-->
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+ <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
-	<script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+ <script src="vendor/bootstrap/js/popper.js"></script>
+ <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
-	<script src="vendor/select2/select2.min.js"></script>
+ <script src="vendor/select2/select2.min.js"></script>
 <!--===============================================================================================-->
-	<script src="js/mainTable.js"></script>
-	<!-- /Table display -->
+ <script src="js/mainTable.js"></script>
+ <!-- /Table display -->
 
 
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
 
-	<!-- Footer -->
-	<footer id="footer" class="section">
+ <!-- Footer -->
+ <footer id="footer" class="section">
 
-		<!-- container -->
-		<div class="container">
+  <!-- container -->
+  <div class="container">
 
-			<!-- row -->
-			<div class="row">
+   <!-- row -->
+   <div class="row">
 
-				<!-- footer logo -->
-				<div class="col-md-6">
-					<div class="footer-logo">
-						<a class="logo" href="index.html">
-							<img src="../../assets/logo.png" alt="logo">
-						</a>
-					</div>
-				</div>
-				<!-- footer logo -->
+    <!-- footer logo -->
+    <div class="col-md-6">
+     <div class="footer-logo">
+      <a class="logo" href="index.html">
+       <img src="../../assets/logo.png" alt="logo">
+      </a>
+     </div>
+    </div>
+    <!-- footer logo -->
 
-				<!-- footer nav -->
-				<div class="col-md-6">
-					<ul class="footer-nav">
-						<li><a href="index.html">Home</a></li>
-						<li><a href="#">About</a></li>
-						<li><a href="#">Disclaimer</a></li>
-					</ul>
-				</div>
-				<!-- /footer nav -->
+    <!-- footer nav -->
+    <div class="col-md-6">
+     <ul class="footer-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Disclaimer</a></li>
+     </ul>
+    </div>
+    <!-- /footer nav -->
 
-			</div>
-			<!-- /row -->
+   </div>
+   <!-- /row -->
 
-			<!-- row -->
-			<div id="bottom-footer" class="row">
+   <!-- row -->
+   <div id="bottom-footer" class="row">
 
-				<!-- social -->
-				<div class="col-md-4 col-md-push-8">
-					<ul class="footer-social">
-						<li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
-						<li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
-						<li><a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a></li>
-						<li><a href="#" class="instagram"><i class="fa fa-instagram"></i></a></li>
-						<li><a href="#" class="youtube"><i class="fa fa-youtube"></i></a></li>
-						<li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
-					</ul>
-				</div>
-				<!-- /social -->
+    <!-- social -->
+    <div class="col-md-4 col-md-push-8">
+     <ul class="footer-social">
+      <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
+      <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
+      <li><a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a></li>
+      <li><a href="#" class="instagram"><i class="fa fa-instagram"></i></a></li>
+      <li><a href="#" class="youtube"><i class="fa fa-youtube"></i></a></li>
+      <li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
+     </ul>
+    </div>
+    <!-- /social -->
 
-				<!-- copyright -->
-				<div class="col-md-8 col-md-pull-4">
-					<div class="footer-copyright">
-						<span>&copy; Copyright 2018. All Rights Reserved. | This template is made by <a href="https://owlprojx.com">Owl-ProjX</a></span>
-					</div>
-				</div>
-				<!-- /copyright -->
+    <!-- copyright -->
+    <div class="col-md-8 col-md-pull-4">
+     <div class="footer-copyright">
+      <span>&copy; Copyright 2018. All Rights Reserved. | This template is made by <a href="https://owlprojx.com">Owl-ProjX</a></span>
+     </div>
+    </div>
+    <!-- /copyright -->
 
-			</div>
-			<!-- row -->
+   </div>
+   <!-- row -->
 
-		</div>
-		<!-- /container -->
+  </div>
+  <!-- /container -->
 
-	</footer>
-	<!-- /Footer -->
+ </footer>
+ <!-- /Footer -->
 
-	<router-outlet></router-outlet>
-  
+ <router-outlet></router-outlet>
