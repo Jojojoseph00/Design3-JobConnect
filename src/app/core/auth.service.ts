@@ -21,6 +21,8 @@ interface User {
   info: string;  
   skill: string;
   category: string;
+  phone: String;
+  country: String;
   
 
 }
@@ -136,7 +138,9 @@ export class AuthService {
       dob: '',
       info: '',
       skill:'',
-      category:''
+      category:'',
+      phone: '',
+      country: ''
 
       
 
@@ -160,7 +164,9 @@ export class AuthService {
       dob: user.dob,
       info: user.info,
       skill: user.skill,
-      category: user.category
+      category: user.category,
+      phone: user.phone,
+      country: user.country
       
 
     }
@@ -231,7 +237,9 @@ export class AuthService {
       dob: user.dob,
       info: user.info,
       skill: user.skill,
-      category: user.category
+      category: user.category,
+      phone: user.phone,
+      country: user.country
 
     }
 

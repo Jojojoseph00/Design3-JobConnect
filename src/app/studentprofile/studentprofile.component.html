@@ -73,12 +73,12 @@
               <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/President_Barack_Obama.jpg" alt="Girl in a jacket" width="500" height="600"> -->
               <input [(ngModel)]="user.displayName" class="input" type="text" name="name" placeholder="Full Name (as in passport)">
               <input type="date" [(ngModel)]="user.dob" class="input" name="dob" placeholder="dd/mm/yyyy"><br>
-              <input class="input" type="country" name="country" placeholder="Country">
+              <input [(ngModel)]="user.country" class="input" type="country" name="country" placeholder="Country">
               <hr>
               <input [(ngModel)]="user.email" class="input" type="email" name="email" placeholder="Email">
-              <input class="input" type="tel" name="phone" placeholder="Telephone">
+              <input [(ngModel)]="user.phone" class="input" type="tel" name="phone" placeholder="Telephone">
               <hr>
-              <textarea class="input" name="message" placeholder="Comments about yourself"></textarea>
+              <textarea [(ngModel)]="user.info" class="input" name="message" placeholder="Comments about yourself"></textarea>
               <upload></upload>
               <button class="main-button icon-button pull-right" value="Save Profile" (click)="auth.updateUserData3(user)">Save profile</button>
             </form>

@@ -78,82 +78,67 @@
           </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let application of applications | async">
-              <td class="column1">{{ application.displayName }}</td>
-              <td class="column2">{{ application.email }}</td>
-              <td class="column3">{{ application.dob }}</td> 
-              <!-- Column 4 -->
-
-              
-              <td class="column4">
-
-
-                  <div class="bs-example">
-                      <!-- Button HTML (to Trigger Modal) -->
-                      <a href="#myModal" class="main-button pull-left" data-toggle="modal">View More</a>
-                      
-                      <!-- Modal HTML -->
-                      <div id="myModal" class="modal fade">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              
-                              <h4 class="modal-title">Details</h4>
-                            </div>
-                            <div class="modal-body">
-                                <li *ngIf="auth.user | async as user">
-                                    <ul><h2>{{ user.displayName }}</h2></ul>
-                                    <ul><img src="{{ user.photoURL }}" alt="{{ user.displayName }}"></ul>
-                                    <ul><h2>{{ user.email }}</h2></ul>
-                                    <ul><h2>{{ user.dob }}</h2></ul>
-                                </li>
-                                <h2>Description</h2>
-                                <p>{{ user.info }}</p>
-                            </div>
-                            <div  class="modal-footer">
-                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>     
-                
-                
-                
-
-                
-               
-      
-                <!-- End of column 4 -->
-                
-               
+          <tr *ngFor="let application of applications | async">
+           <td class="column1">{{application.displayName}}</td>
+           <td class="column2">{{application.email}}</td>
+           <td class="column3">{{application.dob}}</td>
+           <!-- Column 4 -->
+           <td class="column4">
             
-                </td>
-             
-
-
-
-
-
-            </tr>
-            <!-- We remove this LATER -->
-            <tr>
-              <td class="column1">Robert Daniel Cook</td>
-              <td class="column2">robertcook.rdc@gmail.com</td>
-              <td class="column3">2018-12-12</td>
-              <td class="column4"><button class="main-button pull-left" (click)="open(content)">View more</button></td>
-            </tr>
-            <tr>
-              <td class="column1">Toh Jian Hui</td>
-              <td class="column2">tohjianhui@gmail.com</td>
-              <td class="column3">2019-01-04</td>
-              <td class="column4"><button class="main-button pull-left" (click)="open(content)">View more</button></td>
-            </tr>
+            
+             <div class="bs-example">
+               <!-- Button HTML (to Trigger Modal) -->
+               <a href="#myModal" class="main-button pull-left" data-toggle="modal">View more</a>
+               
+               <!-- Modal HTML -->
+               <div id="myModal" class="modal fade">
+                <div class="modal-dialog">
+                 <div class="modal-content">
+                  <div class="modal-header">
+                   
+                   <h4 class="modal-title">Confirmation</h4>
+                  </div>
+                  <div class="modal-body">
+                    <tr *ngIf="auth.user | async as user">
+                     <h4>Name: {{ user.displayName }}</h4>
+                     <h4>Email: {{ user.email }}</h4>
+                     <h4>Date of Birth: {{ user.dob }}</h4>                          
+                      
+                    <p>Please confirm that the details are correct and then click the confirm button to apply</p>
+                   </tr>
+                  </div>
+                  <div  *ngIf="auth.user | async as user" class="modal-footer">
+                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                 </div>
+                </div>
+               </div>
+              </div>     
+            
+            
+            
+            
+            
+            </td>
+  
+  
+  
+           <!-- <td class="column4"><a href="view_more_job.html">Apply now</a></td> -->
+           <!-- <td class="column5"><a href="view_more_job
+  
+  Johnny The T-Rex, [10.01.19 14:40]
+  .html">View More</a></td> -->
+           <!-- <td class="column6">$999.00</td> -->
+          </tr>
+          <!-- <tr>
+           <td class="column1">DT3 Front-end developer</td>
+           <td class="column2">James Cook University</td>
+           <td class="column3">Toronto (ON) Canada</td>
+           <td class="column4">bla</td> -->
+           <!-- <td class="column5"><a href="view_more_job.html">View More</a></td> -->
+          <!-- </tr> -->
           
-           
-            
-
+  
         </tbody>
       </table>
     </div>
@@ -220,29 +205,39 @@
             <input [(ngModel)]="title" class="input" type="text" name="title" placeholder="Job Title">
             <input type="text" [(ngModel)]="content" class="input" name="content" placeholder="Company">
             <input class="input" [(ngModel)]="location" type="text" name="location" placeholder="Location">
-            <hr>
+            <button class="main-button icon-button pull-right" value="Add a Post" (click)="addPost()">Create Job</button>
+            <br>
+            <br>
+            <br>
+            
             <h4>Recruitment contact information</h4>
             <!-- You gotta add the tags to this if u wanna store -->
-            <input class="input" type="text" name="person" placeholder="Recruiter Name">
-            <input class="input" type="email" name="email" placeholder="Email">
-            <input class="input" type="tel" name="phone" placeholder="Telephone">
+            <div *ngIf="auth.user | async as user">
+              <input [(ngModel)]="user.displayName" class="input" type="text" name="name" placeholder="Full Name (as in passport)">
+              <input type="date" [(ngModel)]="user.dob" class="input" name="dob" placeholder="dd/mm/yyyy"><br>
+              <input [(ngModel)]="user.country"class="input" type="country" name="country" placeholder="Country">
+              <input [(ngModel)]="user.email" class="input" type="email" name="email" placeholder="Email">
+              <input [(ngModel)]="user.phone" class="input" type="tel" name="phone" placeholder="Telephone">
+              <button class="main-button icon-button pull-right" value="Save Profile" (click)="auth.updateUserData3(user)">Save profile</button>
+          </div>
             <hr>
             <!-- Old button, it is now outside the form -->
             <!-- <button class="main-button icon-button pull-right" value="Save Profile" (click)="auth.updateUserData3(user)">Create Job</button> -->
           </form>
           
           <!-- Submit job button, please add an effect on the page, reload or smt -->
-          <button class="main-button icon-button pull-right" value="Add a Post" (click)="addPost()">Create Job</button>
+          
         
         </div>
       </div>
-      <div class="col-md-5 col-md-offset-1">
+      <div class="col-md-5 col-md-offset-1" >
         <h4>Information</h4>
-          <form action="www.gmail.com" method="post" id="employeeForm"> 
-            <textarea class="input" name="message" placeholder="Job Description" style="height: 100px;"></textarea>
+          <form action="www.gmail.com" method="post" id="employeeForm" *ngIf="auth.user | async as user"> 
+            <textarea [(ngModel)]="user.info" class="input" name="message" placeholder="Job Description" style="height: 100px;"></textarea>
             <br><br>
             <textarea class="input" name="message" placeholder="Company Background" style="height: 100px;"></textarea>
             <br><br>
+            
             <hr>
             <h4>Additional</h4>
             <upload></upload>
