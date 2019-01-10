@@ -78,10 +78,10 @@
           </tr>
         </thead>
         <tbody>
-            <tr *ngIf="auth.user | async as user">
-              <td class="column1">{{ user.displayName }}</td>
-              <td class="column2">{{ user.email }}</td>
-              <td class="column3">{{ user.dob }}</td> 
+            <tr *ngFor="let application of applications | async">
+              <td class="column1">{{ application.displayName }}</td>
+              <td class="column2">{{ application.email }}</td>
+              <td class="column3">{{ application.dob }}</td> 
               <!-- Column 4 -->
 
               
@@ -224,7 +224,7 @@
             <h4>Recruitment contact information</h4>
             <!-- You gotta add the tags to this if u wanna store -->
             <input class="input" type="text" name="person" placeholder="Recruiter Name">
-            <input [(ngModel)]="user.email" class="input" type="email" name="email" placeholder="Email">
+            <input class="input" type="email" name="email" placeholder="Email">
             <input class="input" type="tel" name="phone" placeholder="Telephone">
             <hr>
             <!-- Old button, it is now outside the form -->
