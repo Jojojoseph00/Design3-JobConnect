@@ -23,8 +23,6 @@
           <ul class="main-menu nav navbar-nav navbar-right">
               <li><a routerLink='/employer'>Jobs</a></li>
               <li><a routerLink= '/studentprofile'>My Profile</a></li>
-              <!-- <li><a href="#">My Applications</a></li>
-              <li><a href="#">Messaging</a></li> -->
               <li><a style="color:#FF6700;" (click)="auth.signOut()"><strong>LOGOUT</strong></a></li>
             </ul>
       </nav>
@@ -51,10 +49,10 @@
         </div>
       </div>
     </div>
-  
   </div>
   <!-- /Hero-area -->
   
+
   <!-- Profile -->
   <div id="contact" class="section">
   
@@ -85,20 +83,10 @@
         </div>
         <div class="col-md-5 col-md-offset-1">
 					<h4>Skills</h4>
-					<!-- <div class="slidecontainer">
-						<select name="demo-category" id="demo-category">
-							<option value="">- Category -</option>
-							<option value="1">Business & Management</option>
-							<option value="1">Information Technology</option>
-							<option value="1">Psychology</option>
-							<option value="1">Environmental Sciences</option>
-            </select><br><br>
-            </div> -->
 
 						<!-- John's sliders, version youyou -->
             <br><div *ngIf="auth.user | async as user">
-            <ol >
-
+            <ol>
               <div>
                 <div>
                   <input type="radio" id="Business" [(ngModel)]="user.category" value="Business">
@@ -112,7 +100,6 @@
                   </div>
                 </div><hr>
 
-
                 <div>
                   <input type="radio" id="Information Technology" [(ngModel)]="user.category" value="Information Technology" class="input">
                   <label for="Information Technology">.   Information Technology</label>
@@ -124,7 +111,6 @@
                     <label for="IT" style="font-weight: normal; float: right;">Java</label>
                   </div>
                 </div><hr>
-
 
                 <div>
                     <input type="radio" id="Engineers" [(ngModel)]="user.category" value="Engineers">
@@ -142,19 +128,15 @@
           </ol>
         </div>
 						<!-- End of sliders -->
-
 					</div>
 					<!-- End of Skills div -->
 				</div>
 				<!-- /row -->
 			</div>
 			<!-- /container -->
-
 		</div>
-		<!-- End of Profile -->
-
-
-
+    <!-- End of Profile -->
+    
           <!-- Footer -->
 	<footer id="footer" class="section">
 
@@ -219,7 +201,3 @@
 
 	</footer>
 	<!-- /Footer -->
-  
-  
-  
-       

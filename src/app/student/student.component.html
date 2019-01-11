@@ -22,9 +22,6 @@
     <nav id="nav">
       <ul class="main-menu nav navbar-nav navbar-right">
         <li><a routerLink='/student'>Employer dashboard</a></li>
-        <!-- <li><a href="#">All graduates</a></li>
-        <li><a href="#">All listings</a></li>
-        <li><a href="#">Messaging</a></li> -->
         <li><a style="color:#FF6700;" (click)="auth.signOut()"><strong>LOGOUT</strong></a></li>
       </ul>
     </nav>
@@ -45,7 +42,6 @@
     <div class="row">
       <div class="col-md-10 col-md-offset-1 text-center">
         <ul class="hero-area-tree">
-          <!-- <li><a href="index.html">Home</a></li> -->
           <li>View graduates who applied to your listings</li>
         </ul>
         <h1 class="white-text">Candidates</h1>
@@ -56,9 +52,6 @@
 
 </div>
 <!-- /Hero-area -->
-
-
-
 
 <!-- Table display -->
 
@@ -73,8 +66,6 @@
             <th class="column2">Email</th>
             <th class="column3">Date of birth</th>
             <th class="column4">Profile</th>
-            <!-- <th class="column5">Application</th> -->
-            <!-- <th class="column6">Total</th> -->
           </tr>
         </thead>
         <tbody>
@@ -84,7 +75,6 @@
            <td class="column3">{{application.dob}}</td>
            <!-- Column 4 -->
            <td class="column4">
-            
             
              <div class="bs-example">
                <!-- Button HTML (to Trigger Modal) -->
@@ -114,38 +104,14 @@
                 </div>
                </div>
               </div>     
-            
-            
-            
-            
-            
             </td>
-  
-  
-  
-           <!-- <td class="column4"><a href="view_more_job.html">Apply now</a></td> -->
-           <!-- <td class="column5"><a href="view_more_job
-  
-  Johnny The T-Rex, [10.01.19 14:40]
-  .html">View More</a></td> -->
-           <!-- <td class="column6">$999.00</td> -->
           </tr>
-          <!-- <tr>
-           <td class="column1">DT3 Front-end developer</td>
-           <td class="column2">James Cook University</td>
-           <td class="column3">Toronto (ON) Canada</td>
-           <td class="column4">bla</td> -->
-           <!-- <td class="column5"><a href="view_more_job.html">View More</a></td> -->
-          <!-- </tr> -->
-          
-  
         </tbody>
       </table>
     </div>
   </div>
 </div>
 </div>
-
 
 <!--===============================================================================================-->
 <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
@@ -160,9 +126,6 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-
 
 <!-- Hero-area -->
 <div class="hero-area section">
@@ -186,7 +149,6 @@
 
 </div>
 <!-- /Hero-area -->
-
 
 <!-- Profile -->
 <div id="contact" class="section">
@@ -221,13 +183,9 @@
               <button class="main-button icon-button pull-right" value="Save Profile" (click)="auth.updateUserData3(user)">Save profile</button>
           </div>
             <hr>
-            <!-- Old button, it is now outside the form -->
-            <!-- <button class="main-button icon-button pull-right" value="Save Profile" (click)="auth.updateUserData3(user)">Create Job</button> -->
-          </form>
-          
-          <!-- Submit job button, please add an effect on the page, reload or smt -->
-          
-        
+          </form> 
+          <!-- Submit job button, add an effect on page, reload or smt so that user gets satisfying feedback -->
+      
         </div>
       </div>
       <div class="col-md-5 col-md-offset-1" >
@@ -237,31 +195,23 @@
             <br><br>
             <textarea class="input" name="message" placeholder="Company Background" style="height: 100px;"></textarea>
             <br><br>
-            
+      
             <hr>
             <h4>Additional</h4>
             <upload></upload>
             <hr>
-
-            <!-- Button repeated here -->
-            <!-- <button class="main-button icon-button pull-right" value="Save Profile" (click)="auth.updateUserData3(user)">Create Job</button> -->
           </form>
 
         </div>
         <!-- End of Skills div -->
       </div>
-      <!-- Can also have it here -->
-      <!-- <button class="main-button icon-button pull-right" value="Add a Post" (click)="addPost()" style="float: center;">Create Job</button> -->
-
-      
       <!-- /row -->
     </div>
-    
     <!-- /container -->
-
   </div>
   <!-- End of Profile -->
 
+  
 <!-- Footer -->
 <footer id="footer" class="section">
 
