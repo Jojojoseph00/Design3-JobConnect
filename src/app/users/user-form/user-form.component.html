@@ -1,64 +1,61 @@
-<form [formGroup]="userForm" *ngIf="!newUser" (ngSubmit)="login()">
+    <form [formGroup]="userForm" *ngIf="!newUser" (ngSubmit)="login()">
 
+    <!-- <label for="email">Email</label> -->
+    <input type="email" id="email" name="email2" class="input" formControlName="email" required autocomplete="new-password" placeholder="Email">
 
-  <!-- <label for="email">Email</label> -->
-  <input type="email" id="email" name="email2" class="input" formControlName="email" required autocomplete="new-password" placeholder="Email">
-
-  <div *ngIf="formErrors.email" class="help is-danger" style="color:#FFF;">
-      {{ formErrors.email }}
-  </div>
-
-  <!-- <label for="password">Password</label> -->
-  <br><input type="password" id="password" name="password2" class="input" formControlName="password" required autocomplete="new-password" placeholder="Select a password">
-
-  <div *ngIf="formErrors.password" class="help is-danger">
-      {{ formErrors.password }}
-  </div>
-
-  <span *ngIf="userForm.valid" class="help is-success" style="color:#FFF;"></span><br>
-
-  <button type="submit" class="main-button icon-button pull-left" [disabled]="!userForm.valid">Login</button>
-
-  <br><hr>
-  <div>
-    <p style="color:#FFF;">Are you a new user?</p><button class="main-button icon-button pull-right" (click)="toggleForm()">Register now</button>
+    <div *ngIf="formErrors.email" class="help is-danger" style="color:#FFF;">
+        {{ formErrors.email }}
     </div>
-  <!-- <p class="button is-small" (click)="toggleForm()">New User?</p> -->
-  
+
+    <!-- <label for="password">Password</label> -->
+    <br><input type="password" id="password" name="password2" class="input" formControlName="password" required autocomplete="new-password" placeholder="Select a password">
+
+    <div *ngIf="formErrors.password" class="help is-danger">
+        {{ formErrors.password }}
+    </div>
+
+    <span *ngIf="userForm.valid" class="help is-success" style="color:#FFF;"></span><br>
+
+    <button type="submit" class="main-button icon-button pull-left" [disabled]="!userForm.valid">Login</button>
+
+    <br><hr>
+    <div>
+        <p style="color:#FFF;">Are you a new user?</p><button class="main-button icon-button pull-right" (click)="toggleForm()">Register now</button>
+        </div>
+    <!-- <p class="button is-small" (click)="toggleForm()">New User?</p> -->
+    
+    <!-- <a style="color:#FFF;" *ngIf="!passReset && userForm.controls.email.valid" class="help is-info" (click)="resetPassword()">Reset Password for {{userForm.value.email}}?</a> -->
+    <br><p *ngIf="passReset" class="help is-info" style="color:#FFF;">Reset requested. Check your email instructions.</p>
+
+    </form>
 
 
-  <!-- <a style="color:#FFF;" *ngIf="!passReset && userForm.controls.email.valid" class="help is-info" (click)="resetPassword()">Reset Password for {{userForm.value.email}}?</a> -->
-  <br><p *ngIf="passReset" class="help is-info" style="color:#FFF;">Reset requested. Check your email instructions.</p>
 
-</form>
+    <form [formGroup]="userForm" *ngIf="newUser" (ngSubmit)="signup()">
 
-
-
-<form [formGroup]="userForm" *ngIf="newUser" (ngSubmit)="signup()">
-
+            
+            
         
+            <!-- <label for="email">Email</label> -->
+            <input type="email" class="input" formControlName="email" name="email" required autocomplete="new-password" placeholder="Email">
         
-      
-        <!-- <label for="email">Email</label> -->
-        <input type="email" class="input" formControlName="email" name="email" required autocomplete="new-password" placeholder="Email">
-      
-        <div *ngIf="formErrors.email" class="notification is-danger" style="color:#FFF;">
-            {{ formErrors.email }}
-        </div>
-      
-        <!-- <label for="password">Password</label> -->
-        <br><input type="password" class="input" formControlName="password" name="password" required placeholder="Password">
-      
-        <div *ngIf="formErrors.password" class="notification is-danger" style="color:#FFF;">
-            {{ formErrors.password }}
-        </div>
-        <div *ngIf="userForm.valid" class="notification is-success" style="color:#FFF;"></div><br>
-      
-        <button class="main-button icon-button pull-left" [disabled]="!userForm.valid"><strong>Submit</strong></button>
+            <div *ngIf="formErrors.email" class="notification is-danger" style="color:#FFF;">
+                {{ formErrors.email }}
+            </div>
+        
+            <!-- <label for="password">Password</label> -->
+            <br><input type="password" class="input" formControlName="password" name="password" required placeholder="Password">
+        
+            <div *ngIf="formErrors.password" class="notification is-danger" style="color:#FFF;">
+                {{ formErrors.password }}
+            </div>
+            <div *ngIf="userForm.valid" class="notification is-success" style="color:#FFF;"></div><br>
+        
+            <button class="main-button icon-button pull-left" [disabled]="!userForm.valid"><strong>Submit</strong></button>
 
-        <br><hr>
-        <div>
-        <p style="color:#FFF;">Are you a returning user?</p><button class="main-button icon-button pull-right" (click)="toggleForm()"><strong>Registered</strong></button>
-        </div>
-      
-      </form>
+            <br><hr>
+            <div>
+            <p style="color:#FFF;">Are you a returning user?</p><button class="main-button icon-button pull-right" (click)="toggleForm()"><strong>Registered</strong></button>
+            </div>
+        
+        </form>
